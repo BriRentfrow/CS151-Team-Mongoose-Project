@@ -10,8 +10,9 @@ public class Maze extends Model{
    private   int playerCol;
    public static int SIZE = 20;
 
+}
  public class enum Heading{
 
-    
+
 
 }
