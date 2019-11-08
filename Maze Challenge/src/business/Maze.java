@@ -44,6 +44,4 @@ public class Maze extends Model{
 
  public class enum Heading{
 
-
-
 }

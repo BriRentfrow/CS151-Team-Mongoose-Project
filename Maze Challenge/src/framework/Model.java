@@ -1,34 +1,43 @@
 package framework;
 
-import java.io.Serializable;
-import java.util.Observable;
 
-abstract public class Model extends Observable implements Serializable {
-	 
-	  private String fileName = null;
-	  private Boolean unsavedChanges = false;
-	  // called by customization:
-	  public void changed() {
-	     unsavedChanges = true;
-	     this.setChanged();
-	     this.notifyObservers();
-	     this.clearChanged();
-	  }
-	  // etc.
-	public String getFileName() {
-		// TODO Auto-generated method stub
-		return null;
+import java.util.*;
+import java.io.*;
+
+public abstract class Model extends Observable implements Serializable {
+
+	private String fileName;
+	private boolean unsavedChanges;
+	private static final long serialVersionUID = 1L;
+	
+	public Model(String fileName) {
+		this.fileName = fileName;
+		unsavedChanges = false;
 	}
-	public void setFileName(String fName) {
-		// TODO Auto-generated method stub
-		
+	
+	public Model() { this(""); }
+	
+	public void copy(Model m) {
+		fileName = m.getFileName();
+		changed();
+		unsavedChanges = false;
 	}
-	public void setUnsavedChanges(boolean b) {
-		// TODO Auto-generated method stub
-		
+	
+	public void changed() {
+		this.setUnsavedChanges(true);
+		this.setChanged();
+		this.notifyObservers();
 	}
 	public boolean hasUnsavedChanges() {
-		// TODO Auto-generated method stub
-		return false;
+		return unsavedChanges;
 	}
+	public void setUnsavedChanges(boolean flag) {
+		this.unsavedChanges = flag;
 	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+}
