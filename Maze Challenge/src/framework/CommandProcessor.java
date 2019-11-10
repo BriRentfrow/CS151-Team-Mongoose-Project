@@ -1,24 +1,43 @@
 package framework;
 
-public class CommandProcessor {
-	  public static void execute(Command cmmd) { cmmd.execute(); }
-	  
-	  /**
-	   * Not sure if this goes here
-	   * 
-	  public void actionPerformed(ActionEvent ae) {
-		     JTextField source = (JTextField)ae.getSource();
-		     String cmmd = ae.getActionCommand();
-		     Command command = null;
-		     try {
-		        double dim = Double.valueOf(source.getText());
-		        if (cmmd == "Set Height") command = new SetHeight(brick, dim);
-		        else if (cmmd == "Set Width") command = new SetWidth(brick, dim);
-		        else if (cmmd == "Set Length") command = new SetLength(brick, dim);
-		        CommandProcessor.execute(command);
-		     } catch (NumberFormatException e) {
-		        // ...
-		     }
-		  }
-	  **/
+// Jacky 11/9 completed CommandProcessor
+
+public class CommandProcessor{
+	
+	Command slot;
+	
+	public CommandProcessor()
+	{
+		
 	}
+	
+	public void setCommand(Command cmmd)
+	{
+		slot = cmmd;
+	}
+	
+	public void executeCmmd() {
+		slot.execute();
+	}
+}
+
+
+//how to use:
+//need to make a setCommand first
+//maze.setCommand(new MoveNorth(maze))
+
+//then execute the setCommand
+//maze.executeCmmd();
+
+
+
+
+//
+//public class CommandProcessor {
+//
+//	public static CommandProcessor theCommandProecessor = new CommandProcessor();
+//	public static void execute(Command c)
+//	{
+//		c.execute();
+//	}
+//}

@@ -1,7 +1,12 @@
 package framework;
 
-abstract public class Command {
-	  protected Model model;
-	  abstract public void execute();
-	  // constructors, etc.
-	}
+import business.Maze;
+
+
+//Jacky 11/9 added Command. NOTES: try as in interface
+
+public interface Command
+{
+	public void execute();
+}
+

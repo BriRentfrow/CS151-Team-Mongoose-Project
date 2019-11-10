@@ -10,4 +10,7 @@ public interface AppFactory {
 	  public String getTitle();
 	  public String[] getHelp();
 	  public String about();
+	  
+	  
+	  
 	}
