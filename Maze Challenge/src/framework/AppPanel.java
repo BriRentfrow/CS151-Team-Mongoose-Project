@@ -5,6 +5,10 @@ import java.util.*;
 
 import javax.swing.JPanel;
 
+/**
+ * Brianna: Added from Pearce's framework page
+ */
+
 public class AppPanel extends JPanel implements Observer {
 	  protected Model model;
 	  protected ActionListener listener;
@@ -23,5 +27,6 @@ public class AppPanel extends JPanel implements Observer {
 	     views.add(view);
 	  }
 	 
+	  //TODO: What needs to be added here?
 	  // etc.
 	}

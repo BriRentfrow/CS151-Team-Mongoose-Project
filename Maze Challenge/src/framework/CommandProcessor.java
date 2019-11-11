@@ -1,24 +1,24 @@
 package framework;
 
-// Jacky 11/9 completed CommandProcessor
+/**
+ * Brianna: Added from Pearce's framework page
+ * Jacky 11/9 completed CommandProcessor
+ * Brianna(11/10): Fixed issue with CommandProcessor
+ */
 
-public class CommandProcessor{
+public class CommandProcessor {
 	
-	Command slot;
+	static Command slot;
 	
-	public CommandProcessor()
-	{
-		
+	public CommandProcessor(){	
 	}
 	
-	public void setCommand(Command cmmd)
-	{
+	public static void executeCmmd(Command cmmd) {
 		slot = cmmd;
-	}
-	
-	public void executeCmmd() {
 		slot.execute();
 	}
+
+
 }
 
 

@@ -5,6 +5,10 @@ import java.util.Observer;
 
 import javax.swing.JComponent;
 
+/**
+ * Brianna: Added from Pearce's framework page
+ */
+
 abstract public class View extends JComponent implements Observer {
 	  protected Model model;
 	  public View(Model model) { setModel(model);}
@@ -18,5 +22,6 @@ abstract public class View extends JComponent implements Observer {
 	        this.update(model, null); // update myself
 	     }
 	  }
+	  //TODO: Does anything need to be added in view?
 	  // etc.
 	}

@@ -1,5 +1,9 @@
 package framework;
 
+/**
+ * Brianna: Added from Pearce's framework page
+ */
+
 import java.awt.event.ActionListener;
 
 public interface AppFactory {
