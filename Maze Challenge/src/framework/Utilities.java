@@ -4,10 +4,15 @@ import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
 
+/**
+ * Brianna: Added from Pearce's framework page
+ * Brianna(11/10): fixed minor bug
+ */
+
 public class Utilities {
 
 	// enables stack traces and diagnostics
-	public Boolean DEBUG = true;
+	public static Boolean DEBUG = true;
 
 	// asks user a yes/no question
 	public static boolean confirm(String query) {
@@ -119,6 +124,5 @@ public class Utilities {
 		}
 		return result;
 	}
-
 	// etc.
 }
