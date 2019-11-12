@@ -5,6 +5,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+<<<<<<< Updated upstream
+=======
+/**
+ * Brianna: Added from Pearce's framework page Brianna (11/10): Added Menus to
+ * 			JMenuBar 
+ * 
+ */
+>>>>>>> Stashed changes
 
 public class AppFrame extends JFrame implements ActionListener {
 	 
