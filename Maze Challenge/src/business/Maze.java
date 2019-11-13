@@ -82,14 +82,4 @@ public class Maze extends Model {
 		double rounded = Math.round(function); // decimal is .0
 		return (int) rounded;
 	}
-
-	//tests move method.
-	public static void main(String[] args) {
-		Maze mze = new Maze();
-		System.out.println(mze.getPlayerPos());
-
-		mze.move(Heading.NORTH);
-		mze.move(Heading.NORTH);
-		System.out.println(mze.getPlayerPos());
-	}
 }

@@ -11,6 +11,7 @@ import javax.swing.*;
  * 
  */
 
+<<<<<<< Updated upstream
 public class AppFrame extends JFrame implements ActionListener {
 
 	private AppFactory factory;
@@ -82,4 +83,23 @@ public class AppFrame extends JFrame implements ActionListener {
 			CommandProcessor.executeCmmd(command);
 		}
 	}
+=======
+    public void setModel(Model model) {
+        this.model = model;
+        panel.setModel(model);
+    }
+    
+    
+    
+    
+    public static JMenu makeMenu(String name, String[] items, ActionListener handler) {
+		JMenu result = new JMenu(name);
+		for(int i = 0; i < items.length; i++) {
+			JMenuItem item = new JMenuItem(items[i]);
+			item.addActionListener(handler);
+			result.add(item);
+		}
+		return result;
+    }
+>>>>>>> Stashed changes
 }
