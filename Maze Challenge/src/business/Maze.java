@@ -93,3 +93,4 @@ public class Maze extends Model {
 		System.out.println(mze.getPlayerPos());
 	}
 }
+/// hello
