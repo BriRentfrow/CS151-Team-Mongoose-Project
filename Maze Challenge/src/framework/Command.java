@@ -1,13 +1,17 @@
-package framework;
+package Framework;
+import Business.Maze;
 
-import business.Maze;
 
-/**
- * Jacky 11/9 added Command. NOTES: try as in interface
- */
+public  abstract class Command {
 
-public interface Command
-{
-	public void execute();
+    protected Model model;
+
+    public Command(Model model) {
+        this.model = model;
+    }
+
+    abstract public void execute();
+
 }
+
 

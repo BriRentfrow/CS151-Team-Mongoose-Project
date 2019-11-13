@@ -1,45 +1,52 @@
-package framework;
-import java.util.*;
-import java.io.*;
+package Framework;
+import Business.Maze;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Observable;
+
+public class Model extends Observable implements Serializable {
 
 
-/*
- * Jacky added model class 11/7
- */
-public abstract class Model extends Observable implements Serializable {
+    private String fileName = null;
+    private Boolean unsavedChanges = false;
+    private static final long serialVersionUID = 1L;
 
-	private String fileName;
-	private boolean unsavedChanges;
-	private static final long serialVersionUID = 1L;
-	
-	public Model(String fileName) {
-		this.fileName = fileName;
-		unsavedChanges = false;
-	}
-	
-	public Model() { this(""); }
-	
-	public void copy(Model m) {
-		fileName = m.getFileName();
-		changed();
-		unsavedChanges = false;
-	}
-	
-	public void changed() {
-		this.setUnsavedChanges(true);
-		this.setChanged();
-		this.notifyObservers();
-	}
-	public boolean hasUnsavedChanges() {
-		return unsavedChanges;
-	}
-	public void setUnsavedChanges(boolean flag) {
-		this.unsavedChanges = flag;
-	}
-	public String getFileName() {
-		return fileName;
-	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+    // constructor
+    public Model(String fileName) {
+        this.fileName = fileName;
+        unsavedChanges = false;
+    }
+
+    // called by customization:
+    public void changed() {
+        unsavedChanges = true;
+        this.setChanged();
+        this.notifyObservers();
+        this.clearChanged();
+    }
+
+    public boolean hasUnsavedChanges() {
+        return unsavedChanges;
+    }
+
+    public void setUnsavedChanges(Boolean unsavedChanges) {
+        this.unsavedChanges = unsavedChanges;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "fileName='" + fileName + '\'' +
+                '}';
+    }
+
 }
