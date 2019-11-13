@@ -5,11 +5,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import presentation.BrickFrame;
-
 /**
- * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
- * Jacky 11/11:
+ * Brianna: Added from Pearce's framework page Brianna (11/10): Added Menus to
+ * 			JMenuBar 
+ * 
  */
 
 public class AppFrame extends JFrame implements ActionListener {
@@ -33,23 +32,20 @@ public class AppFrame extends JFrame implements ActionListener {
 		this.setVisible(true);
 	}
 
+	//not fully understood, may need to be fixed.
 	public void setModel(Model model) {
 		this.model = model;
-		panel.setModel(model);
+
 	}
 
 	protected JMenuBar createMenuBar() {
 		JMenuBar bar = new JMenuBar();
 		// add file, edit, and help menus
-		// TODO: action listeners to each button
-		//JMenu fileMenu = new JMenu(); // 
-		JMenu fileMenu = new JMenu("File");
+		// TODO: Make sure these additions work
+		JMenu fileMenu = new JMenu(); // JMenu fileMenu = new JMenu("File");
 		Utilities.makeMenu("File", factory.getEditCommands(), this);
-		
-		
 		JMenu helpMenu = new JMenu();
 		Utilities.makeMenu("Help", factory.getHelp(), this);
-		
 		JMenu editMenu = new JMenu();
 		Utilities.makeMenu("Edit", factory.getEditCommands(), this);
 		// now add menus to bar
@@ -59,8 +55,6 @@ public class AppFrame extends JFrame implements ActionListener {
 		return bar;
 	}
 
-	
-	
 	public void actionPerformed(ActionEvent ae) {
 		String cmmd = ae.getActionCommand();
 
@@ -81,19 +75,11 @@ public class AppFrame extends JFrame implements ActionListener {
 			System.exit(1);
 		} else if (cmmd == "About") {
 			Utilities.inform(factory.about());
-		} else if (cmmd == "Help") {					//this may be the contents button
+		} else if (cmmd == "Help") {
 			Utilities.inform(factory.getHelp());
-		} 
-		
-
-		else {
+		} else {
 			Command command = factory.makeEditCommand(model, cmmd);
 			CommandProcessor.executeCmmd(command);
 		}
 	}
-
-	public static void main(String[] args) {
-		AppFrame appFrame = new AppFrame();
-		appFrame.setVisible(true);
-		
 }

@@ -11,7 +11,7 @@ public interface Command
 
 
 
-//
+
 //public abstract class Command {
 //	
 //	protected Model model;

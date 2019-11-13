@@ -7,6 +7,7 @@ import framework.AppPanel;
 import framework.Command;
 import framework.Model;
 
+//Jacky 11/11 This class builds everything together that is created in framework
 public class MazeFactory implements AppFactory {
 
 	@Override
