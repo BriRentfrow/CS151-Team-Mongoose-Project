@@ -9,7 +9,8 @@ import java.awt.geom.Rectangle2D;
 import framework.View;
 
 //Jacky 11/11: Added maze view, paintComponenet() needs to be finished
-public class MazeView extends View{
+public class MazeView extends View{ 
+	//remember has an observer, needs update method
 
 	// same as front view
 	// draws the maze

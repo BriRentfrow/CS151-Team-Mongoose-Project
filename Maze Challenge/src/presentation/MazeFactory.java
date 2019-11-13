@@ -7,9 +7,11 @@ import framework.AppPanel;
 import framework.Command;
 import framework.Model;
 
-//Jacky 11/11 This class builds everything together that is created in framework
 public class MazeFactory implements AppFactory {
 
+	// Jacky 11/12: completed getEditCommands(), getHelp(), about(), contents().
+	
+	
 	@Override
 	public Model makeModel() {
 		// TODO Auto-generated method stub
@@ -24,9 +26,12 @@ public class MazeFactory implements AppFactory {
 
 	@Override
 	public String[] getEditCommands() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new String[] { "North", "East", "South", "West" };
+		//Under the Edit button, these strings appear.
+
 	}
+	
 
 	@Override
 	public Command makeEditCommand(Model model, String type) {
@@ -34,21 +39,31 @@ public class MazeFactory implements AppFactory {
 		return null;
 	}
 
+	
+	//Not sure if needed in Maze Challenge assignment.
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
 	@Override
 	public String[] getHelp() {
 		
-		return ;
+		return new String[] {"About" , "Contents" };
+		//After clicking help, these two string appear in the drop down menu.
 	}
 
 	@Override
 	public String about() {
 		return "Maze Challenge version: 1.0 by Mongoose " + Character.toString((char) 169) + " 2019" ;
+		//The About info under Help.
 	}
 
+	@Override
+	public String[] contents() {
+		return new String[] { "Locate the escape room in the number of alloted moves" };
+		//The contents infor under Help.
+	}
 }

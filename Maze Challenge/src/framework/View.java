@@ -6,30 +6,24 @@ import java.util.Observer;
 
 import javax.swing.JComponent;
 
-import business.Brick;
 import business.Maze;
 
 /**
  * Brianna: Added from Pearce's framework page
- * Jacky 11/11: edited updated(), constructor, and added paintComponent(), 
+ * Jacky 11/11: edited updated() , constructor, and added paintComponent(). Should be finished
  * 
  */
 
 abstract public class View extends JComponent implements Observer {
-	protected Model model;
-
-	public View(Model model) {
-		setModel(model);
-	}
+	
+	protected Model model; //all classes use this model and refer to it
 
 	public View() {
 		this(null);
 	}
 
-	public void update(Observable subject, Object msg) {
-		this.model = (Maze) subject;
-		repaint();
-
+	public View(Model model) {
+		setModel(model);
 	}
 
 	// deletes observers from model, adds observers form model, and updates model.
@@ -45,7 +39,11 @@ abstract public class View extends JComponent implements Observer {
 			this.update(model, null); // update myself
 		}
 	}
-	
+
+	public void update(Observable subject, Object msg) {	
+		repaint();
+	}
+	//repaint() uses this.
 	public void paintComponenet(Graphics g)
 	{
 		super.paintComponent(g);

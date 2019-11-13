@@ -1,27 +1,44 @@
 package presentation;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 
 import business.Maze;
 import framework.AppPanel;
 
-// Jacky: 11/11 Added class, Constructor, and Update Notes: Unfinished
 public class MazePanel extends AppPanel{
 
-	// private fields
 	
+	// Jacky 11/12: added constructor and private variables.Constructor still needs to be worked on.  
+	//The notes below are notes on what to work on. Sorry if its unclear. - Jacky
+	private Maze maze;
+	private ControlView ctrlView;
+	private MazeView mazeView;
 	
-	//app panel needs to be finished for this
-	public MazePanel(Maze maze, ActionListener listener) {
+	/*private MazeControlPanel controlPanel;
+		can make that and then have update method and update all 
+		set a panel
+		I believe also notifyObservers when action is done. Otherwise, where do we use notifyObservers?
 		
+	
+	Then when building MazeFactory theMakeModel()
+	 add the controlpanel on the left
+	 add the mazeView on the right and shove that into a panel. 
+	 
+	*/
+	
+	
+	public MazePanel(Maze maze, ActionListener listener) {
 		super(maze, listener);
 		// add text fields, labels, and views
+		this.maze = maze;
+		//set layout using grid
 		
-	}
-	
-	public void update( Observable subject, Object msg) {
-		Maze maze = (Maze) model;
+//		Could be implemented like below, MazeView and ControlView needs to be finished 11/13 
+//		this.controlView = new ControlView(maze); 
+//		this.mazeView = new MazeView(maze);
+//		this.setLayout(new GridLayout (1,2)); // 1x2 grid layout
 		
 	}
 }
