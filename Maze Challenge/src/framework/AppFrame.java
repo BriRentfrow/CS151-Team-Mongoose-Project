@@ -7,11 +7,10 @@ import javax.swing.*;
 
 /**
  * Brianna: Added from Pearce's framework page Brianna (11/10): Added Menus to
- * 			JMenuBar 
+ * JMenuBar
  * 
  */
 
-<<<<<<< Updated upstream
 public class AppFrame extends JFrame implements ActionListener {
 
 	private AppFactory factory;
@@ -33,10 +32,9 @@ public class AppFrame extends JFrame implements ActionListener {
 		this.setVisible(true);
 	}
 
-	//not fully understood, may need to be fixed.
+	// not fully understood, may need to be fixed.
 	public void setModel(Model model) {
 		this.model = model;
-
 	}
 
 	protected JMenuBar createMenuBar() {
@@ -83,23 +81,15 @@ public class AppFrame extends JFrame implements ActionListener {
 			CommandProcessor.executeCmmd(command);
 		}
 	}
-=======
-    public void setModel(Model model) {
-        this.model = model;
-        panel.setModel(model);
-    }
-    
-    
-    
-    
-    public static JMenu makeMenu(String name, String[] items, ActionListener handler) {
+
+	public static JMenu makeMenu(String name, String[] items, ActionListener handler) {
 		JMenu result = new JMenu(name);
-		for(int i = 0; i < items.length; i++) {
+		for (int i = 0; i < items.length; i++) {
 			JMenuItem item = new JMenuItem(items[i]);
 			item.addActionListener(handler);
 			result.add(item);
 		}
 		return result;
-    }
->>>>>>> Stashed changes
+	}
+
 }
