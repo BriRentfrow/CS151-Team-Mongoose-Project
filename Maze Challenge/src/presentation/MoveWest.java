@@ -18,7 +18,7 @@ public class MoveWest implements Command {
 	@Override
 	public void execute() {
 		maze.move(Heading.WEST);
-		
+		//repaint here
 	}
 	
 }
