@@ -55,6 +55,8 @@ public class MazeView extends View{
      * @param g 
      * 
      **/
+    
+    /**
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
@@ -72,6 +74,36 @@ public class MazeView extends View{
         gc.setColor(Color.RED);
         gc.fill(rectangle);
     }
+    **/
+    
+    public void paintComponenet(Graphics g) {
+        super.paintComponent(g); 
+        Graphics2D gc = (Graphics2D) g;
+
+        //for loop, draw each rectangle to how you need
+        Rectangle2D.Double rectangle = new Rectangle2D.Double(0, 0, UNIT_SIZE, UNIT_SIZE);
+
+        gc.setColor(Color.GRAY);
+        gc.fill(rectangle);
+        gc.setColor(Color.BLACK);
+        gc.draw(rectangle);
+
+        //for loop this 
+        
+        for(int x = 0; x > 20; x++) {
+            for(int y = 0; y > 20; y++) {
+            	rectangle = new Rectangle2D.Double((x*UNIT_SIZE), (y*UNIT_SIZE), UNIT_SIZE,25);
+                gc.setColor(Color.GRAY);
+                gc.fill(rectangle);
+                gc.setColor(Color.BLACK);
+                gc.draw(rectangle);
+            }
+        }
+        
+        //end for loop
+        //or can draw rectangles in the method below
+    }
+    
 
     public void drawSquare(Graphics gr, int x, int y) {
 
@@ -86,8 +118,6 @@ public class MazeView extends View{
         //Make Border
         g.setColor(Color.BLACK);
         g.drawRect(x, y, UNIT_SIZE, UNIT_SIZE);
-
-
 
     }
 }
