@@ -2,7 +2,7 @@ package framework;
 import java.awt.event.ActionListener;
 /**
  * Brianna: Added from Pearce's framework page
- * Jacky: added contents() 11/13
+ * Jacky 11/13: added contents()
  */
 
 

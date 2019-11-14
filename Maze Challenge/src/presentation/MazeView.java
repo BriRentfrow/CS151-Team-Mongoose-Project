@@ -38,11 +38,19 @@ public class MazeView extends View{
 		
 		//for loop, draw each rectangle to how you need
 		Rectangle2D.Double rectangle = new Rectangle2D.Double(40, 40, 25, 25);
+
 		gc.setColor(Color.RED);
 		gc.fill(rectangle);
 		gc.setColor(Color.BLACK);
 		gc.draw(rectangle);
-		
+
+		//for loop this 
+	
+		gc.setColor(Color.RED);
+		gc.fill(rectangle);
+		gc.setColor(Color.BLACK);
+		gc.draw(rectangle);
+		//end for loop
 		//or can draw rectangles in the method below
 	}
 	

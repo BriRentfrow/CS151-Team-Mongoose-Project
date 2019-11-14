@@ -5,7 +5,7 @@ import java.util.Random;
 import framework.Model;
 
 // Jacky implemented: move and move tester
-// Jacky completed Maze 11/9, edited Move() 11/11
+// Jacky completed Maze 11/9, edited Move() 11/13 added RESET in move.
 public class Maze extends Model {
 
 	boolean[][] mazeArray;

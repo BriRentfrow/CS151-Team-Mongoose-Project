@@ -46,7 +46,7 @@ public class AppPanel extends JPanel implements Observer {
 	     for(View view: views) view.setModel(model);
 	  }
 	  
-//Useless because we can use the add() from Jcomponent - Jacky but adding views into set of views so they can be updated? what is that relationship.
+	//still confused on this methodt - Jacky but adding views into set of views so they can be updated? what is that relationship.
 	  public void add(View view) {
 	     views.add(view);
 	  }
