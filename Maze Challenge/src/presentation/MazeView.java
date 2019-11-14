@@ -15,6 +15,7 @@ import framework.Model;
 import framework.View;
 
 //Jacky 11/11: Added maze view, paintComponenet() needs to be finished
+//Jacky 11/13: update() was added.
 public class MazeView extends View{ 
 	//remember has an observer, needs update method
 
@@ -26,7 +27,7 @@ public class MazeView extends View{
 	public MazeView(Model model)
 	{
 		super(model);
-		this.model = model;
+		this.maze = (Maze) model;
 		
 	}
 
@@ -37,21 +38,13 @@ public class MazeView extends View{
 		Graphics2D gc = (Graphics2D) g;
 		
 		//for loop, draw each rectangle to how you need
-		Rectangle2D.Double rectangle = new Rectangle2D.Double(40, 40, 25, 25);
+		Rectangle2D.Double rectangle = new Rectangle2D.Double(0, 0, 200, 200);
 
 		gc.setColor(Color.RED);
 		gc.fill(rectangle);
 		gc.setColor(Color.BLACK);
 		gc.draw(rectangle);
 
-		//for loop this 
-	
-		gc.setColor(Color.RED);
-		gc.fill(rectangle);
-		gc.setColor(Color.BLACK);
-		gc.draw(rectangle);
-		//end for loop
-		//or can draw rectangles in the method below
 	}
 	
 	

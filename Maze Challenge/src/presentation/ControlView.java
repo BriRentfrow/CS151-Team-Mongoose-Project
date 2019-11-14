@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import business.Maze;
 import framework.Model;
 
+
+// Jacky 11/13 added constructor and methods()
 public class ControlView extends JPanel implements Observer {
 
 	private Maze maze;

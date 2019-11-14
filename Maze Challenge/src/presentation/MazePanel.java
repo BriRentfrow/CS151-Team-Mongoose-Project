@@ -4,14 +4,17 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+
 import business.Maze;
 import framework.AppPanel;
 
 public class MazePanel extends AppPanel{
 
 	
-	// Jacky 11/12: added constructor and private variables.Constructor still needs to be worked on.  
-	//The notes below are notes on what to work on. Sorry if its unclear. - Jacky
+	// Jacky 11/12: added and edited constructor.  
+	// 
 	private Maze maze;
 	private ControlView ctrlView;
 	private MazeView mazeView;
@@ -34,6 +37,7 @@ public class MazePanel extends AppPanel{
 		// add text fields, labels, and views
 		this.maze = maze;
 		mazeView = new MazeView(maze);
+		
 		ctrlView = new ControlView(maze, listener);
 		setLayout(new GridLayout (1,2)); // 1x2 grid layout
 		maze.addObserver(ctrlView);

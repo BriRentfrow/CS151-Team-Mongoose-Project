@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MazeRunner",
+            "request": "launch",
+            "mainClass": "presentation.MazeRunner",
+            "projectName": "Maze Challenge"
+        }
+    ]
+}
