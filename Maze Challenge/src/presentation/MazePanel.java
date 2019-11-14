@@ -33,8 +33,9 @@ public class MazePanel extends AppPanel{
 		super(maze, listener);
 		// add text fields, labels, and views
 		this.maze = maze;
-
-		//below is not done yet
+		//set layout using grid
+		
+//		Could be implemented like below, MazeView and ControlView needs to be finished 11/13 
 //		this.controlView = new ControlView(maze); 
 //		this.mazeView = new MazeView(maze);
 //		this.setLayout(new GridLayout (1,2)); // 1x2 grid layout

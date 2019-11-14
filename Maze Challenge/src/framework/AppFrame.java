@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import presentation.BrickFrame;
-
 /**
  * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
  * Jacky 11/12: AppFrame should be done. Edited createMenuBar() and it should be done.
@@ -62,8 +60,8 @@ public class AppFrame extends JFrame implements ActionListener {
 	 */
 	
 	public void actionPerformed(ActionEvent ae) {
-		String cmmd = ae.getActionCommand();  
-		
+		String cmmd = ae.getActionCommand();
+
 		if (cmmd == "Save") {
 			Utilities.save(model, false);
 		} else if (cmmd == "SaveAs") {
@@ -88,13 +86,9 @@ public class AppFrame extends JFrame implements ActionListener {
 		else if(cmmd == "Contents") { Utilities.inform(factory.contents());}
 
 		else {
-			//runs the command, using Model to get command.
 			Command command = factory.makeEditCommand(model, cmmd);
 			CommandProcessor.executeCmmd(command);
 		}
-		
-		
 	}
-	
-	
+
 }

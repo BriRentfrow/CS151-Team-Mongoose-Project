@@ -27,8 +27,6 @@ public class CommandProcessor {
 	public static void main(String[] args) {
 		//CommandProcessor cp = new CommandProcessor();
 		Maze maze = new Maze();
-		
-		//where a super class is expected, a subclass is accepted. So MoveNorth accepts Maze 
 		MoveNorth up = new MoveNorth(maze); 
 		
 		System.out.println(maze.getPlayerPos());

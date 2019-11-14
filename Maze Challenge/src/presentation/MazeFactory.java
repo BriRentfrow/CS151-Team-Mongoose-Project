@@ -2,7 +2,6 @@ package presentation;
 
 import java.awt.event.ActionListener;
 
-import business.Maze;
 import framework.AppFactory;
 import framework.AppPanel;
 import framework.Command;
@@ -12,28 +11,16 @@ public class MazeFactory implements AppFactory {
 
 	// Jacky 11/12: completed getEditCommands(), getHelp(), about(), contents().
 	
-	public MazeFactory()
-	{
-		//done
-	}
 	
-	
-	@Override //makes maze
+	@Override
 	public Model makeModel() {
-		Model maze = new Maze();
-		return maze;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	@Override //makes the panel under the FileMenu
+	@Override
 	public AppPanel makePanel(Model model, ActionListener listener) {
-		
-		
-		if (model instanceof Maze)
-		{	
-			//return MazePanel()
-			return new MazePanel( (Maze) model, listener);
-		}
-		
+		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -46,18 +33,9 @@ public class MazeFactory implements AppFactory {
 	}
 	
 
-	@Override //convert commands to string
+	@Override
 	public Command makeEditCommand(Model model, String type) {
-		
-		//needs to return type command
-		Command cmmd = null;
-		
-		switch(type)
-		{
-		case "MoveNorth":
-			cmmd = new MoveNorth(model);
-		}
-		
+		// TODO Auto-generated method stub
 		return null;
 	}
 
