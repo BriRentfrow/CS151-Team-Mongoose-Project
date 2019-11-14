@@ -13,7 +13,7 @@ public class CommandProcessor {
 
         String cmd = ae.getActionCommand();
         Command command = null;
-
+// these are the new the command the different command applications
         switch (cmd) {
             case "Move North":
                 command = new MoveNorth(maze);

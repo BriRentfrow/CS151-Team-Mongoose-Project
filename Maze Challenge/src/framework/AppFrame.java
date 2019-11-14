@@ -23,7 +23,7 @@ public class AppFrame extends JFrame implements ActionListener {
         setTitle(factory.getTitle());
         setSize(500, 500);
     }
-
+     // G  wrotte this code completed 11/11
     protected JMenuBar createMenuBar() {
 
         JMenuBar bar = new JMenuBar();
@@ -51,7 +51,7 @@ public class AppFrame extends JFrame implements ActionListener {
 
         return bar;
     }
-
+     // G's wrotte this code
     public void actionPerformed(ActionEvent ae) {
 
         String cmd = ae.getActionCommand();

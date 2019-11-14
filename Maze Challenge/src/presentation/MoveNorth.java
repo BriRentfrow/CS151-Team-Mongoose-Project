@@ -6,6 +6,8 @@ import framework.Command;
 
 //Jacky 11/9 Completed
 
+
+
 public class MoveNorth implements Command {
 
 	private Maze maze;

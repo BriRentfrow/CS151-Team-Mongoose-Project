@@ -14,6 +14,8 @@ public class AppPanel extends JPanel implements Observer {
 
     public void update(Observable subject, Object msg) {
         // override in a subclass if desired
+        setText(" the model is being updated" + model.setFileName());
+
     }
 
     public void setModel(Model model) {

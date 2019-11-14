@@ -124,8 +124,30 @@ public class Utilities {
 
         return result;
     }
+
+    public static String getFileName(String fName, Boolean open) {
+        JFileChooser chooser = new JFileChooser();
+        String result = null;
+        if (fName != null) {
+// open chooser in directory of fName
+            chooser.setCurrentDirectory(new File(fName));
+        }
+        if (open) {
+            int returnVal = chooser.showOpenDialog(null);
+            if(returnVal == JFileChooser.APPROVE_OPTION) {
+                result= chooser.getSelectedFile().getPath();
+            }
+        } else {
+            int returnVal = chooser.showSaveDialog(null);
+        }
+        return result;
+    }
+
+
+
     // write to file
 
+// g wrotte this code and found out it was already in the class utilities
 
 //    public static void writeToFile(Model model) throws IOException{
 //        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("Model.bin"));
