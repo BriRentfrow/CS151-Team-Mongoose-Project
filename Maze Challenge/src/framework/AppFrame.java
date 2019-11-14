@@ -101,7 +101,6 @@ public class AppFrame extends JFrame implements ActionListener {
 			CommandProcessor.execute(command);
 		}
 		
-		
 	}
 	
 	

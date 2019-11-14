@@ -63,10 +63,8 @@ public class MazeFactory implements AppFactory {
 			return new MoveWest(maze);
 			
 		case "Reset":
-			return new MoveReset(model);
+			return new MoveReset(maze);
 		}
-		
-		
 		
 		return null;
 	}

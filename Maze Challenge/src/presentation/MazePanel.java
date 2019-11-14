@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 
 import business.Maze;
 import framework.AppPanel;
+import framework.Model;
+import framework.View;
 
 public class MazePanel extends AppPanel{
 
@@ -17,8 +19,6 @@ public class MazePanel extends AppPanel{
 	// 
 	private Maze maze;
 	private ControlView ctrlView;
-	private MazeView mazeView;
-	
 	/*private MazeControlPanel controlPanel;
 		can make that and then have update method and update all 
 		set a panel
@@ -32,18 +32,21 @@ public class MazePanel extends AppPanel{
 	*/
 	
 	
-	public MazePanel(Maze maze, ActionListener listener) {
-		super(maze, listener);
+	public MazePanel(Model model, ActionListener listener) {
+		super(model, listener);
 		// add text fields, labels, and views
-		this.maze = maze;
-		mazeView = new MazeView(maze);
+		this.maze = (Maze) model;
+		//get Views and add mazeview to it
+		views.add(new MazeView(model));
 		
 		ctrlView = new ControlView(maze, listener);
 		setLayout(new GridLayout (1,2)); // 1x2 grid layout
+
 		maze.addObserver(ctrlView);
-		add(ctrlView);
-		add(mazeView);  //MAZEVIEW null pointer whyyyy
+		this.add(ctrlView);
 		
+		for (View view: views) 
+		{ this.add(view);}
 		
 	}
 }

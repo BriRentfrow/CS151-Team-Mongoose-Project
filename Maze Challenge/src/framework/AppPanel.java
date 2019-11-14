@@ -23,6 +23,7 @@ public class AppPanel extends JPanel implements Observer {
 	  public AppPanel(Model model, ActionListener listener)
 	  {
 		this.model = model;  
+		views = ArrayList<View>();
 		this.listener = listener; 
 		model.addObserver(this);
 	  }
@@ -38,20 +39,12 @@ public class AppPanel extends JPanel implements Observer {
 	    //  }
 	  }
 	  
-	  public void setModel(Model model) {
-		  //DONE
-	     if (this.model != null) this.model.deleteObserver(this);
-	     this.model = model;
-	     if (this.model != null) this.model.addObserver(this);
-	     for(View view: views) view.setModel(model);
-	  }
 	  
 	  public void add(View view) {
-		 super.add(view);
-	     views.add(view);
+		//  super.add(view);
+	     views.add(view);     //NULL POINTERE thrown here
 	  }
 	 
-	  
-	  
+	  public ArrayList getViews() {return views;}
 	  
 	}

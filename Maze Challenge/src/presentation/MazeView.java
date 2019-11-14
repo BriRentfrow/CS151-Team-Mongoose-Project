@@ -18,25 +18,18 @@ import framework.View;
 //Jacky 11/13: update() was added.
 public class MazeView extends View{ 
 	//remember has an observer, needs update method
-
-	// same as front view
 	// draws the maze
-
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
+
 	private Maze maze;
 	
 	public MazeView(Model model)
 	{
-		super(model);            //needed
+		super(model);
 		this.maze = (Maze) model;
 		
 	}
 
-	
-	//just draw the maze ez
 	public void paintComponenet(Graphics g) {
 		super.paintComponent(g); 
 		Graphics2D gc = (Graphics2D) g;

@@ -19,28 +19,10 @@ abstract public class View extends JComponent implements Observer {
 	
 	protected Model model; //all classes use this model and refer to it
 
-	public View() {
-		this(null);
-	}
-
 	public View(Model model) {
-		setModel(model);
+		this.model = model;
+		model.addObserver(this); //model is listening for any changes in View
 	}
-
-
-	public void setModel(Model model) {
-
-		
-		if (this.model != null) {
-			this.model.deleteObserver(this);
-			this.model = model;
-		}
-		if (this.model != null) {
-			this.model.addObserver(this);
-			this.update(model, null); // update myself <-- uses the method update() below.
-		}
-	}
-
 	
 	//UPDATE IS DONE, not needed in MazeView
 	public void update(Observable subject, Object msg) {	
