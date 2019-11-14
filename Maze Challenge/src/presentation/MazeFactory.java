@@ -6,6 +6,7 @@ import business.Maze;
 import framework.AppFactory;
 import framework.AppPanel;
 import framework.Command;
+import framework.CommandProcessor;
 import framework.Model;
 
 public class MazeFactory implements AppFactory {
@@ -48,29 +49,26 @@ public class MazeFactory implements AppFactory {
 	public Command makeEditCommand(Model model, String type) {
 		
 		//needs to return type command
-		Command cmmd = null;
+		Maze maze = (Maze) model;
 		
 		switch(type)
 		{
 		case "North":
-			cmmd = new MoveNorth(model);
+			CommandProcessor.executeCmmd(new MoveNorth(maze));
 			break;
 		case "East":
-			cmmd = new MoveEast(model);
+			CommandProcessor.executeCmmd(new MoveEast(maze));
 			break;
 		case "South":
-			cmmd = new MoveSouth(model);
+			CommandProcessor.executeCmmd(new MoveSouth(maze));
 			break;
 		case "West":
-			cmmd = new MoveWest(model);
+			CommandProcessor.executeCmmd(new MoveWest(maze));
 			break;
 		case "Reset":
-			cmmd = new MoveWest(model);
+			CommandProcessor.executeCmmd(new MoveReset(maze));
 			break;
 		}
-		
-		
-		
 		return null;
 	}
 

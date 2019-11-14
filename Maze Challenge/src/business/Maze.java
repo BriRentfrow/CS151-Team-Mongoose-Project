@@ -102,8 +102,13 @@ public class Maze extends Model {
 		Maze mze = new Maze();
 		System.out.println(mze.getPlayerPos());
 
+<<<<<<< HEAD
 		mze.move(Heading.NORTH);
 		mze.move(Heading.NORTH);
 		System.out.println(mze.getPlayerPos());
 	}
+=======
+
+
+>>>>>>> parent of d1147e2... Merge branch 'master' of https://bitbucket.org/BriannaRentfrow/cs151mongoose
 }

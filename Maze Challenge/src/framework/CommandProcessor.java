@@ -26,7 +26,4 @@ public class CommandProcessor {
 }
 
 
-//how to use:
-
-//maze.executeCommand(new MoveNorth(maze));
-
+//how to use: maze.executeCommand(new MoveNorth(maze));

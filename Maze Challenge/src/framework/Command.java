@@ -11,6 +11,7 @@ public interface Command
 	public void execute();
 }
 
+
 //NEED to Test: Make a model somewhere else, set a maze, and make sure that instance works
 //public abstract class Command
 //{
