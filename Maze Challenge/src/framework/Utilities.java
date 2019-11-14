@@ -114,7 +114,8 @@ public class Utilities {
 	}
 
 	// a simple menu maker
-	
+	// public static void loadModel(Model model)
+	// {	}
 	
 	//Jmenu's are initialized here. Because of that, new Jmenu's do not need to be initialized in AppFrame
 	
