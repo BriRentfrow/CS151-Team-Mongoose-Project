@@ -25,41 +25,63 @@ public class MazeView extends View {
 	//10x10 pixels for square size
 	//20x20 grid size
 	
+	
+	/**
+	 * Constructor
+	 */
 	public MazeView() {
 		Dimension d = new Dimension();
 		d.setSize(400,400);
 		this.setPreferredSize(d);
 	}
 
+	/**
+	 * Another constructor
+	 * @param maze Maze view takes in a maze
+	 */
 	public MazeView(Maze maze) {
 		super(maze);
 		//TheMaze = maze;
 	}
 	
+	/**
+	 * Draws the maze
+	 * @param g 
+	 */
 	public void paintComponent(Graphics g) {
+		
 		super.paintComponent(g);
 		
-		//Make Border
-		g.setColor(Color.BLACK);
-		g.drawRect(0, 0, UNIT_SIZE, UNIT_SIZE);
-		//Make a square
-		g.setColor(Color.GRAY);
-		g.fillRect(0, 0, UNIT_SIZE, UNIT_SIZE);
+		//Create the grid within the for loop
+		for(int x = 0; x > 20; x++) {
+			for(int y = 0; y > 20; y++) {
+				drawSquare(g,(x*UNIT_SIZE), (y*UNIT_SIZE));
+				
+			}
+		}
 		
-		
-		//g.drawRect(x, y, width, height);
-		//g.setColor(Color.BLACK);
-        //g.drawString("Side View" , 0, 10);
         Graphics2D gc = (Graphics2D) g;
-        Rectangle2D.Double rectangle = new 
-            Rectangle2D.Double(10,10.0, 25, 25);
+        Rectangle2D.Double rectangle = new Rectangle2D.Double(UNIT_SIZE,UNIT_SIZE, 25, 25);
         gc.setColor(Color.RED);
         gc.fill(rectangle);
 	}
 	
-	//Use for loop to build a 2D Array of the paintComponent based on the ROOM_SIZE 
-	public void buildMaze(int size) {
+	public void drawSquare(Graphics gr, int x, int y) {
+		
+		Graphics2D g = (Graphics2D) gr;
+		
+		Rectangle2D.Double rectangle = new Rectangle2D.Double(UNIT_SIZE,UNIT_SIZE, 25, 25);
+		//Make a square
+		g.setColor(Color.GRAY);
+		g.fillRect(x, y, UNIT_SIZE, UNIT_SIZE);
+		
+		Rectangle2D.Double borderrect = new Rectangle2D.Double(UNIT_SIZE,UNIT_SIZE, 25, 25);
+		//Make Border
+		g.setColor(Color.BLACK);
+		g.drawRect(x, y, UNIT_SIZE, UNIT_SIZE);
+		
+
 		
 	}
-	
+
 }

@@ -2,7 +2,11 @@ package business;
 
 import java.util.Random;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import framework.Model;
+import presentation.MazeView;
 
 // Jacky implemented: move and move tester
 // Jacky completed Maze 11/9, edited Move() 11/11
@@ -82,6 +86,18 @@ public class Maze extends Model {
 		double rounded = Math.round(function); // decimal is .0
 		return (int) rounded;
 	}
+	
+	
+	//DELETE LATER
+	public void createGUI() {
+        final JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        panel.add(new MazeView.paintComponent());
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
 
 	//tests move method.
 	public static void main(String[] args) {
