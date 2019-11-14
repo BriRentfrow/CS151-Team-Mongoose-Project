@@ -22,11 +22,15 @@ public class MazeView extends View{
 	// same as front view
 	// draws the maze
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private Maze maze;
 	
 	public MazeView(Model model)
 	{
-		super(model);
+		//super(model); 
 		this.maze = (Maze) model;
 		
 	}
@@ -48,9 +52,9 @@ public class MazeView extends View{
 	}
 	
 	
-	public void update(Observable o, Object arg) {
-		this.maze = (Maze) o;
-		repaint();
+	// public void update(Observable o, Object arg) {
+	// 	this.maze = (Maze) o;
+	// 	repaint();
 		
-	}
+	// }
 }

@@ -41,8 +41,9 @@ public class MazePanel extends AppPanel{
 		ctrlView = new ControlView(maze, listener);
 		setLayout(new GridLayout (1,2)); // 1x2 grid layout
 		maze.addObserver(ctrlView);
-		add(mazeView);
 		add(ctrlView);
+		add(mazeView);
+		
 		
 	}
 }

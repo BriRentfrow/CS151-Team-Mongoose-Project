@@ -48,6 +48,7 @@ public class AppPanel extends JPanel implements Observer {
 	  
 	//still confused on this methodt - Jacky but adding views into set of views so they can be updated? what is that relationship.
 	  public void add(View view) {
+		  super.add(view); //why? 
 	     views.add(view);
 	  }
 	 
