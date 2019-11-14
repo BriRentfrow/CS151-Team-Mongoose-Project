@@ -7,7 +7,7 @@ import framework.Model;
 
 //Jacky 11/9: added class
 //Jacky 11/13 changed the class constructor to take a Model
-public class MoveSouth implements Command {
+public class MoveSouth extends Command {
 
 	private Maze maze;
 

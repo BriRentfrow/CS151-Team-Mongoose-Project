@@ -98,7 +98,7 @@ public class AppFrame extends JFrame implements ActionListener {
 			//runs the command, using Model to get command.
 			//Error when clicking move command here. null pointer exception <---------------------------
 			Command command = factory.makeEditCommand(model, cmmd);
-			CommandProcessor.executeCmmd(command);
+			CommandProcessor.execute(command);
 		}
 		
 		

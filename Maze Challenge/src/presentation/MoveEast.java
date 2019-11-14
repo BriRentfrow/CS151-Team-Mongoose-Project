@@ -3,18 +3,18 @@ package presentation;
 import business.Heading;
 import business.Maze;
 import framework.Command;
-import framework.Model;
 
 //Jacky 11/9: added class
 //Jacky 11/13 changed the class constructor to take a Model
 
-public class MoveEast implements Command {
+public class MoveEast extends Command {
 
 	private Maze maze;
 
-	public MoveEast(Model maze)
+	public MoveEast(Maze maze)
 	{
-		this.maze = (Maze) maze;
+		super();
+		this.maze = maze;
 	}
 
 	@Override

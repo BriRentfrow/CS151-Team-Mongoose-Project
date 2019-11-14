@@ -42,7 +42,7 @@ public class MazePanel extends AppPanel{
 		setLayout(new GridLayout (1,2)); // 1x2 grid layout
 		maze.addObserver(ctrlView);
 		add(ctrlView);
-		add(mazeView);
+		add(mazeView);  //MAZEVIEW null pointer whyyyy
 		
 		
 	}

@@ -19,9 +19,9 @@ abstract public class View extends JComponent implements Observer {
 	
 	protected Model model; //all classes use this model and refer to it
 
-	// public View() {
-	// 	this(null);
-	// }
+	public View() {
+		this(null);
+	}
 
 	public View(Model model) {
 		setModel(model);

@@ -5,7 +5,7 @@ import business.Maze;
 import framework.Command;
 import framework.Model;
 
-public class MoveReset implements Command {
+public class MoveReset extends Command {
 
 	private Maze maze;
 
