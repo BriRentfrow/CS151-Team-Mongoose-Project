@@ -65,6 +65,11 @@ public class Maze extends Model {
 			}
 			this.changed();
 			break;
+			
+		case RESET:
+			playerPosX = 10;
+			playerPosY = 10;
+			
 		default:
 			break;
 		}

@@ -1,11 +1,9 @@
 package framework;
+
+
 import java.util.*;
 import java.io.*;
 
-
-/*
- * Jacky added model class 11/7
- */
 public abstract class Model extends Observable implements Serializable {
 
 	private String fileName;

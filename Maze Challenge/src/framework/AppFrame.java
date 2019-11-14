@@ -1,14 +1,18 @@
 package framework;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+
 /**
- * Brianna: Added from Pearce's framework page Brianna (11/10): Added Menus to
- * JMenuBar Jacky 11/11:
+ * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
+ * Jacky 11/12: AppFrame should be done. Edited createMenuBar() and it should be done.
  */
+
+
 
 public class AppFrame extends JFrame implements ActionListener {
 
@@ -24,7 +28,8 @@ public class AppFrame extends JFrame implements ActionListener {
 		setJMenuBar(createMenuBar());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle(factory.getTitle());
-		setSize(500, 500);
+		//setSize(500, 500);
+		setMinimumSize(new Dimension(500, 500));
 	}
 
 	public void display() {
@@ -33,19 +38,18 @@ public class AppFrame extends JFrame implements ActionListener {
 
 	public void setModel(Model model) {
 		this.model = model;
-
+		panel.setModel(model);
 	}
 
 	protected JMenuBar createMenuBar() {
 		JMenuBar bar = new JMenuBar();
-		// add file, edit, and help menus
-		// TODO: Make sure these additions work
-		JMenu fileMenu = new JMenu(); // JMenu fileMenu = new JMenu("File");
-		Utilities.makeMenu("File", factory.getEditCommands(), this);
-		JMenu helpMenu = new JMenu();
-		Utilities.makeMenu("Help", factory.getHelp(), this);
-		JMenu editMenu = new JMenu();
-		Utilities.makeMenu("Edit", factory.getEditCommands(), this);
+		
+		// Jmenu items are initialized under utilities. see makeMenu()
+		JMenu fileMenu = Utilities.makeMenu("File", new String[] { "New", "Open", "Save", "Save As" , "Quit"}, this); // done
+		JMenu helpMenu = Utilities.makeMenu("Help", factory.getHelp(), this); //done
+		
+		JMenu editMenu = Utilities.makeMenu("Edit", factory.getEditCommands(), this); //done
+	
 		// now add menus to bar
 		bar.add(fileMenu);
 		bar.add(editMenu);
@@ -53,9 +57,14 @@ public class AppFrame extends JFrame implements ActionListener {
 		return bar;
 	}
 
-	public void actionPerformed(ActionEvent ae) {
-		String cmmd = ae.getActionCommand();
 
+	/*
+	 * When JMenu buttons are added to action listener, actionPerformed runs about() when you Click Help --> About
+	 */
+	
+	public void actionPerformed(ActionEvent ae) {
+		String cmmd = ae.getActionCommand();  
+		
 		if (cmmd == "Save") {
 			Utilities.save(model, false);
 		} else if (cmmd == "SaveAs") {
@@ -73,11 +82,20 @@ public class AppFrame extends JFrame implements ActionListener {
 			System.exit(1);
 		} else if (cmmd == "About") {
 			Utilities.inform(factory.about());
-		} else if (cmmd == "Help") {
+		} else if (cmmd == "Help") {		
 			Utilities.inform(factory.getHelp());
-		} else {
+		} 
+		//  I dont see content() above it is added below. unsure if its needed.
+		else if(cmmd == "Contents") { Utilities.inform(factory.contents());}
+
+		else {
+			//runs the command, using Model to get command.
 			Command command = factory.makeEditCommand(model, cmmd);
 			CommandProcessor.executeCmmd(command);
 		}
+		
+		
 	}
+	
+	
 }

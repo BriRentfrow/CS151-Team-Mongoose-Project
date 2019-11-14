@@ -1,6 +1,6 @@
 package business;
 
-
 public enum Heading {
-	NORTH, SOUTH, EAST, WEST, REST
+	
+	NORTH, SOUTH, EAST, WEST, RESET
 }
