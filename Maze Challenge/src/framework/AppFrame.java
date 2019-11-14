@@ -12,8 +12,6 @@ import javax.swing.*;
  * Jacky 11/12: AppFrame should be done. Edited createMenuBar() and it should be done.
  */
 
-
-
 public class AppFrame extends JFrame implements ActionListener {
 
 	private AppFactory factory;
