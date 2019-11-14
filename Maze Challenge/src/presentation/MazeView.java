@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.Ellipse2D;
+
 import java.util.Observable;
 
 import javax.swing.JFrame;
@@ -19,7 +21,7 @@ import framework.View;
  * Jacky 11/11: Added maze view, paintComponenet() needs to be finished
  * Brianna (11/12): Worked on
  * Brianna (11/13): Continued to try and get things to paint
- * Brianna (11/14): Continued to work on methods and merging
+ * Brianna (11/14): Continued to work on methods and merging; completely changed PaintComponent, added drawPlayer()
  *
  */
 public class MazeView extends View{ 
@@ -49,12 +51,6 @@ public class MazeView extends View{
         super(maze);
         //TheMaze = maze;
     }
-
-    /**
-     * Draws the maze
-     * @param g 
-     * 
-     **/
     
     /**
     public void paintComponent(Graphics g) {
@@ -87,9 +83,8 @@ public class MazeView extends View{
         gc.fill(rectangle);
         gc.setColor(Color.BLACK);
         gc.draw(rectangle);
-
-        //for loop this 
         
+        //for loop to populate maze with squares
         for(int x = 0; x > 20; x++) {
             for(int y = 0; y > 20; y++) {
             	rectangle = new Rectangle2D.Double((x*UNIT_SIZE), (y*UNIT_SIZE), UNIT_SIZE,25);
@@ -100,10 +95,8 @@ public class MazeView extends View{
             }
         }
         
-        //end for loop
         //or can draw rectangles in the method below
     }
-    
 
     public void drawSquare(Graphics gr, int x, int y) {
 
@@ -119,5 +112,17 @@ public class MazeView extends View{
         g.setColor(Color.BLACK);
         g.drawRect(x, y, UNIT_SIZE, UNIT_SIZE);
 
+    }
+    
+    //Used to draw a circle for the player
+    public void drawPlayer(Graphics gr, int x, int y) {
+    	Graphics2D g = (Graphics2D) gr;
+    	
+    	Ellipse2D.Double player = new Ellipse2D.Double(x, y, 10, 10);
+    	g.setColor(Color.RED);
+    	g.fill(player);
+    	//adds white border around player
+    	g.setColor(Color.WHITE);
+    	g.draw(player);
     }
 }
