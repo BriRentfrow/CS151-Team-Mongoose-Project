@@ -4,11 +4,22 @@ import business.Maze;
 
 
 //try as in interface
-//NEED to Test: Make a model somewhere else, set a maze, and make sure that instance works
+//I got lazy, I changed it back to an abstract class 
+
 public interface Command
 {
 	public void execute();
 }
+
+//NEED to Test: Make a model somewhere else, set a maze, and make sure that instance works
+//public abstract class Command
+//{
+//
+//	protected Modely;
+//	public Command
+//	
+//	public abstract void execute();
+//}
 
 
 

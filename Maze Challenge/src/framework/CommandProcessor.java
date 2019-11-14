@@ -23,24 +23,6 @@ public class CommandProcessor {
 		slot.execute();
 	}
 
-	//tests move method.
-	public static void main(String[] args) {
-		//CommandProcessor cp = new CommandProcessor();
-		Maze maze = new Maze();
-		MoveNorth up = new MoveNorth(maze); 
-		
-		System.out.println(maze.getPlayerPos());
-		CommandProcessor.executeCmmd(up);
-		System.out.println(maze.getPlayerPos());
-		CommandProcessor.executeCmmd(up);
-		System.out.println(maze.getPlayerPos());
-		
-		CommandProcessor.executeCmmd(new MoveNorth(maze));
-		System.out.println(maze.getPlayerPos());
-		// this line only works if static is removed: static Command
-		// cp.CommandProcessor.executeCmmd(newMoveSouth(maze));
-		// it works!!!
-	}
 }
 
 

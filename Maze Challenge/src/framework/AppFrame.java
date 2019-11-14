@@ -1,9 +1,17 @@
 package framework;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+
+/**
+ * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
+ * Jacky 11/12: AppFrame should be done. Edited createMenuBar() and it should be done.
+ */
+
+
 
 /**
  * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
@@ -26,7 +34,8 @@ public class AppFrame extends JFrame implements ActionListener {
 		setJMenuBar(createMenuBar());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle(factory.getTitle());
-		setSize(500, 500);
+		//setSize(500, 500);
+		setMinimumSize(new Dimension(500, 500));
 	}
 
 	public void display() {
@@ -60,8 +69,8 @@ public class AppFrame extends JFrame implements ActionListener {
 	 */
 	
 	public void actionPerformed(ActionEvent ae) {
-		String cmmd = ae.getActionCommand();
-
+		String cmmd = ae.getActionCommand();  
+		
 		if (cmmd == "Save") {
 			Utilities.save(model, false);
 		} else if (cmmd == "SaveAs") {
@@ -86,9 +95,13 @@ public class AppFrame extends JFrame implements ActionListener {
 		else if(cmmd == "Contents") { Utilities.inform(factory.contents());}
 
 		else {
+			//runs the command, using Model to get command.
 			Command command = factory.makeEditCommand(model, cmmd);
 			CommandProcessor.executeCmmd(command);
 		}
+		
+		
 	}
-
+	
+	
 }

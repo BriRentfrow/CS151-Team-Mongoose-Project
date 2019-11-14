@@ -114,13 +114,15 @@ public class Utilities {
 	}
 
 	// a simple menu maker
+	
+	
 	//Jmenu's are initialized here. Because of that, new Jmenu's do not need to be initialized in AppFrame
 	
 	public static JMenu makeMenu(String name, String[] items, ActionListener handler) {
 		JMenu result = new JMenu(name);
 		for(int i = 0; i < items.length; i++) {
 			JMenuItem item = new JMenuItem(items[i]);
-			item.addActionListener(handler);
+			item.addActionListener(handler);          //listens for button to be pressed
 			result.add(item);
 		}
 		return result;

@@ -2,6 +2,7 @@ package presentation;
 
 import java.awt.event.ActionListener;
 
+import business.Maze;
 import framework.AppFactory;
 import framework.AppPanel;
 import framework.Command;
@@ -11,16 +12,26 @@ public class MazeFactory implements AppFactory {
 
 	// Jacky 11/12: completed getEditCommands(), getHelp(), about(), contents().
 	
+	public MazeFactory()
+	{
+		//done
+	}
 	
-	@Override
+	
+	@Override //makes maze
 	public Model makeModel() {
-		// TODO Auto-generated method stub
-		return null;
+		Model maze = new Maze();
+		return maze;
 	}
 
-	@Override
+	@Override //makes the panel under the FileMenu
 	public AppPanel makePanel(Model model, ActionListener listener) {
-		// TODO Auto-generated method stub
+		if (model instanceof Maze)
+		{	
+			//return MazePanel()
+			return new MazePanel( (Maze) model, listener);
+		}
+		
 		return null;
 	}
 
@@ -33,9 +44,33 @@ public class MazeFactory implements AppFactory {
 	}
 	
 
-	@Override
+	@Override //convert commands to string
 	public Command makeEditCommand(Model model, String type) {
-		// TODO Auto-generated method stub
+		
+		//needs to return type command
+		Command cmmd = null;
+		
+		switch(type)
+		{
+		case "North":
+			cmmd = new MoveNorth(model);
+			break;
+		case "East":
+			cmmd = new MoveEast(model);
+			break;
+		case "South":
+			cmmd = new MoveSouth(model);
+			break;
+		case "West":
+			cmmd = new MoveWest(model);
+			break;
+		case "Reset":
+			cmmd = new MoveWest(model);
+			break;
+		}
+		
+		
+		
 		return null;
 	}
 
@@ -43,8 +78,9 @@ public class MazeFactory implements AppFactory {
 	//Not sure if needed in Maze Challenge assignment.
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		return new String( "Maze Challenge");
 	}
 
 	

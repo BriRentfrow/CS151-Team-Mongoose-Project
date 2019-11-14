@@ -10,7 +10,7 @@ import business.Maze;
 
 /**
  * Brianna: Added from Pearce's framework page
- * Jacky 11/11: edited updated() , constructor, and added paintComponent(). Should be finished
+ * Jacky 11/11: edited updated() , constructor, and added paintComponent(). Class should be finished
  * 
  */
 
@@ -18,15 +18,18 @@ abstract public class View extends JComponent implements Observer {
 	
 	protected Model model; //all classes use this model and refer to it
 
-	public View() {
-		this(null);
-	}
+//	public View() {
+//		this(null);
+//	}
 
 	public View(Model model) {
-		setModel(model);
+		this.model = model;
+		this.model.addObserver(this);
+		
+		//setModel(model);
 	}
 
-	// deletes observers from model, adds observers form model, and updates model.
+
 	public void setModel(Model model) {
 
 		
@@ -36,10 +39,12 @@ abstract public class View extends JComponent implements Observer {
 		}
 		if (this.model != null) {
 			this.model.addObserver(this);
-			this.update(model, null); // update myself
+			this.update(model, null); // update myself <-- uses the method update() below.
 		}
 	}
 
+	
+	//UPDATE IS DONE, not needed in MazeView
 	public void update(Observable subject, Object msg) {	
 		repaint();
 	}
@@ -48,4 +53,5 @@ abstract public class View extends JComponent implements Observer {
 	{
 		super.paintComponent(g);
 	}
+	
 }
