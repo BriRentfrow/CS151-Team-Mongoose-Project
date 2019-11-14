@@ -30,7 +30,7 @@ public class MazeView extends View{
 	
 	public MazeView(Model model)
 	{
-		//super(model); 
+		super(model);            //needed
 		this.maze = (Maze) model;
 		
 	}
@@ -42,13 +42,14 @@ public class MazeView extends View{
 		Graphics2D gc = (Graphics2D) g;
 		
 		//for loop, draw each rectangle to how you need
-		Rectangle2D.Double rectangle = new Rectangle2D.Double(0, 0, 200, 200);
+		Rectangle2D.Double rectangle = new Rectangle2D.Double(0, 40, 200, 200);
 
 		gc.setColor(Color.RED);
 		gc.fill(rectangle);
 		gc.setColor(Color.BLACK);
 		gc.draw(rectangle);
 
+		
 	}
 	
 	

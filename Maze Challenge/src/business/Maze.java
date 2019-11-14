@@ -15,6 +15,7 @@ public class Maze extends Model {
 	int playerPosY;
 	int exitX;
 	int exitY;
+	int numMoves;
 
 
 	public Maze() {
@@ -22,12 +23,19 @@ public class Maze extends Model {
 		setExit(20);
 		playerPosX = 10;
 		playerPosY = 10;
+		numMoves = 100;
+		
 	}
 
 	public String getPlayerPos() // for testing purposes
 	{
 		String msg = playerPosX + " " + playerPosY;
 		return msg;
+	}
+	
+	public int getNumMoves()
+	{
+		return numMoves;
 	}
 
 	public void setExit(int mazeSize) {

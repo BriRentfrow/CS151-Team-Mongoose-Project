@@ -33,7 +33,7 @@ public class ControlView extends JPanel implements Observer {
 		movesLeftLabel = new JLabel("Moves Left ");
 
 		exitsLeft = new JLabel(Integer.toString(maze.distanceToExit())); // just changes the int to a string
-		movesLeft = new JLabel(Integer.toString(maze.distanceToExit()));
+		movesLeft = new JLabel(Integer.toString(maze.getNumMoves()));
 
 		northButton = new JButton("North");
 		eastButton = new JButton("East");
