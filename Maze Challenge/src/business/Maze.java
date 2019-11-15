@@ -51,7 +51,6 @@ public class Maze extends Model {
 	public int getExitX() { return exitX;}
 	public int getExitY() { return exitY;}
 	public int getNumMoves(){return numMoves;}
-
 	
 
 	public void setExit() {
