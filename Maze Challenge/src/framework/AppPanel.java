@@ -45,3 +45,4 @@ public class AppPanel extends JPanel implements Observer {
 	// public ArrayList getViews() {return views;}
 	  
 	}
+}
