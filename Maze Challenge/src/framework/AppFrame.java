@@ -7,16 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
+
  * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
- * Jacky 11/12: AppFrame should be done. Edited createMenuBar() and it should be done.
- */
-
-
-
-/**
- * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
- * Jacky 11/12: AppFrame should be done. Edited createMenuBar() and it should be done.
+ * Jacky 11/11: AppFrame should be done. Edited createMenuBar() and it should be done.
  * model.copy(newModel); replaced model.setModel(model);
+ * 
+ * G 11/12: edited  action performed and createMenuBar(), incomlete and late push
+ * 		Jacky already complete on 11/11 
  */
 
 
