@@ -9,5 +9,7 @@ public interface AppFactory {
     public Command makeEditCommand(Model model, String type);
     public String getTitle();
     public String[] getHelp();
-    public String about();
+	public String about();
+	
+	//missing contents - Jacky
 }

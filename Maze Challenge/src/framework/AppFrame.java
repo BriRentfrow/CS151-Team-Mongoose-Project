@@ -21,9 +21,12 @@ public class AppFrame extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle(factory.getTitle());
-        setSize(500, 500);
+		setSize(500, 500);
+		
+		//setMinimumSize is reccomended
     }
-     // G  wrotte this code completed 11/11
+	 // G  wrotte this code completed 11/11
+	 // Jacky: new Jmenu's are created in the Model
     protected JMenuBar createMenuBar() {
 
         JMenuBar bar = new JMenuBar();
