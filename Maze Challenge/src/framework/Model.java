@@ -1,15 +1,13 @@
 package framework;
+
+
 import java.util.*;
 import java.io.*;
 
-
-/*
- * Jacky added model class 11/7
- */
 public abstract class Model extends Observable implements Serializable {
 
-	private String fileName;
-	private boolean unsavedChanges;
+	protected String fileName;
+	protected boolean unsavedChanges;
 	private static final long serialVersionUID = 1L;
 	
 	public Model(String fileName) {
@@ -17,18 +15,19 @@ public abstract class Model extends Observable implements Serializable {
 		unsavedChanges = false;
 	}
 	
-	public Model() { this(""); }
+	public Model() { this(null); }
 	
 	public void copy(Model m) {
 		fileName = m.getFileName();
+		unsavedChanges = m.hasUnsavedChanges();
 		changed();
-		unsavedChanges = false;
 	}
 	
 	public void changed() {
 		this.setUnsavedChanges(true);
 		this.setChanged();
 		this.notifyObservers();
+		this.clearChanged();
 	}
 	public boolean hasUnsavedChanges() {
 		return unsavedChanges;

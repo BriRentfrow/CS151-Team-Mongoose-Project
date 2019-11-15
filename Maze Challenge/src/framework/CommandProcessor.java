@@ -12,36 +12,38 @@ import presentation.MoveSouth;
  */
 
 public class CommandProcessor {
-	
-	static Command slot;
-	
-	public CommandProcessor(){	
-	}
-	
-	public static void executeCmmd(Command cmmd) {
-		slot = cmmd;
-		slot.execute();
-	}
 
-	//tests move method.
-	public static void main(String[] args) {
-		//CommandProcessor cp = new CommandProcessor();
-		Maze maze = new Maze();
-		MoveNorth up = new MoveNorth(maze); 
-		
-		System.out.println(maze.getPlayerPos());
-		CommandProcessor.executeCmmd(up);
-		System.out.println(maze.getPlayerPos());
-		CommandProcessor.executeCmmd(up);
-		System.out.println(maze.getPlayerPos());
-		
-		CommandProcessor.executeCmmd(new MoveNorth(maze));
-		System.out.println(maze.getPlayerPos());
-		// this line only works if static is removed
-		// cp.CommandProcessor.executeCmmd(newMoveSouth(maze));
-		// it works!!!
-	}
+	public static CommandProcessor theCommandProcessor =  new CommandProcessor();
+    
+	public CommandProcessor() 
+	{
+
+    }
+	public static void execute(Command cmmd) 
+	{
+        cmmd.execute();
+    }
+
 }
+
+
+
+
+ //below: If commanprocessor used Command as an interface
+
+// public class CommandProcessor {
+	
+// 	static Command slot;
+	
+// 	public CommandProcessor(){	
+// 	}
+	
+// 	public static void executeCmmd(Command cmmd) {
+// 		slot = cmmd;
+// 		slot.execute();
+// 	}
+
+// }
 
 
 //how to use:

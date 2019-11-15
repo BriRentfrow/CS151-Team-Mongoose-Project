@@ -2,12 +2,18 @@ package framework;
 
 import business.Maze;
 
-/**
- * Jacky 11/9 added Command. NOTES: try as in interface
- */
 
-public interface Command
-{
-	public void execute();
+//try as in interface. Didnt work with appFrame actionPerformed() so using abstract
+
+
+// public interface Command
+// {
+// 	public void execute();
+// }
+
+public abstract class Command {
+    
+	protected Model model;
+
+    public void execute() {}
 }
-

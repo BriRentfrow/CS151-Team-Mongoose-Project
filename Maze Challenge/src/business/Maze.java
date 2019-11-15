@@ -2,30 +2,42 @@ package business;
 
 import java.util.Random;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import framework.Model;
-import presentation.MazeView;
+import framework.Utilities;
 
 // Jacky implemented: move and move tester
-// Jacky completed Maze 11/9, edited Move() 11/11
+// Jacky completed Maze 11/9, edited Move() 11/13 added RESET in move.
+// Jacky 11/13 added win and loose conditions;
 public class Maze extends Model {
 
-	boolean[][] mazeArray;
+
 	public static int MAZE_SIZE = 20;
 
 	int playerPosX;
 	int playerPosY;
 	int exitX;
 	int exitY;
+	int numMoves;
 
 
 	public Maze() {
-		mazeArray = new boolean[20][20];
-		setExit(20);
+		super();
+		setExit();
 		playerPosX = 10;
 		playerPosY = 10;
+		numMoves = 50;
+	}
+
+	public void copy(Model other)
+	{
+		super.copy(other);
+		Maze otherMze = (Maze) other;
+		playerPosX =  otherMze.getPlayerX();
+		playerPosY =  otherMze.getPlayerY();
+		exitX = otherMze.getExitX();
+		exitY = otherMze.getExitY();
+		numMoves = otherMze.getNumMoves();
+		changed();
 	}
 
 	public String getPlayerPos() // for testing purposes
@@ -34,45 +46,76 @@ public class Maze extends Model {
 		return msg;
 	}
 
-	public void setExit(int mazeSize) {
-		Random rand = new Random();
-		exitX = rand.nextInt(mazeSize);
-		exitY = rand.nextInt(mazeSize);
-		mazeArray[exitY][exitX] = true;
-	}
+	public int getPlayerX() {return playerPosX;}
+	public int getPlayerY() {return playerPosY;}
+	public int getExitX() { return exitX;}
+	public int getExitY() { return exitY;}
+	public int getNumMoves(){return numMoves;}
+	
 
+	public void setExit() {
+		Random rand = new Random();
+		exitX = rand.nextInt(MAZE_SIZE);
+		exitY = rand.nextInt(MAZE_SIZE);
+	}
+	
 	public void move(Heading direction) {
 		switch (direction) {
 
 		case NORTH:
-			if (playerPosY > 0) {
+			if (playerPosY > 0 && numMoves > 0) {
 				playerPosY -= 1;
+				numMoves -=1;
+				this.changed();
+				// if play pos is equal to exit do
 			}
-			this.changed();
+			
 			break;
 
 		case SOUTH:
-			if (playerPosY < 19) {
+			if (playerPosY < 19 && numMoves > 0) {
 				playerPosY += 1;
+				numMoves -=1;
+				this.changed();
 			}
-			this.changed();
+			
 			break;
 		case EAST:
-			if (playerPosX < 19) {
+			if (playerPosX < 19 && numMoves > 0) {
 				playerPosX += 1;
+				numMoves -=1;
+				this.changed();
 			}
-			this.changed();
+			
 			break;
 		case WEST:
-			if (playerPosX > 0) {
-				playerPosY -= 1;
+			if (playerPosX > 0 && numMoves > 0) {
+				playerPosX -= 1;
+				numMoves -=1;
+				this.changed();
 			}
+			
+			break;
+			
+		case RESET:
+			playerPosX = 10;
+			playerPosY = 10;
+			setExit();
+			numMoves = 50;
 			this.changed();
 			break;
+
 		default:
 			break;
 		}
 
+		if (playerPosX == exitX && playerPosY == exitY ){
+			Utilities.inform("You have won!");
+			}
+		else if (numMoves == 0)
+		{
+			Utilities.inform("You have lost!");
+		}
 	}
 
 	public int distanceToExit() // pythagorean theorem
@@ -86,18 +129,6 @@ public class Maze extends Model {
 		double rounded = Math.round(function); // decimal is .0
 		return (int) rounded;
 	}
-	
-	
-	//DELETE LATER
-	public void createGUI() {
-        final JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
-        panel.add(new MazeView.paintComponent());
-        frame.add(panel);
-        frame.pack();
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }
 
 	//tests move method.
 	public static void main(String[] args) {

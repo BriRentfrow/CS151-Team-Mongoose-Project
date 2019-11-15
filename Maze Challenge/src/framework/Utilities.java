@@ -104,8 +104,7 @@ public class Utilities {
 		String fName = Utilities.getFileName(model.getFileName());
 		Model newModel = null;
 		try {
-			ObjectInputStream is =
-			   new ObjectInputStream(new FileInputStream(fName));
+			ObjectInputStream is = new ObjectInputStream(new FileInputStream(fName));
 			newModel = (Model)is.readObject();
 			is.close();
 		} catch (Exception err) {
@@ -115,14 +114,18 @@ public class Utilities {
 	}
 
 	// a simple menu maker
+	// public static void loadModel(Model model)
+	// {	}
+	//Jmenu's are initialized here. Because of that, new Jmenu's do not need to be initialized in AppFrame
+	
 	public static JMenu makeMenu(String name, String[] items, ActionListener handler) {
 		JMenu result = new JMenu(name);
 		for(int i = 0; i < items.length; i++) {
 			JMenuItem item = new JMenuItem(items[i]);
-			item.addActionListener(handler);
+			item.addActionListener(handler);          //listens for button to be pressed
 			result.add(item);
 		}
 		return result;
 	}
-	// etc.
+	
 }

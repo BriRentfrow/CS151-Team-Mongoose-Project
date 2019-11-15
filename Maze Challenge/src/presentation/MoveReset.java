@@ -7,19 +7,18 @@ import framework.Model;
 
 //Jacky 11/9: added class
 //Jacky 11/13 changed the class constructor to take a Model
-public class MoveWest extends Command {
+public class MoveReset extends Command {
 
 	private Maze maze;
 
-	public MoveWest(Model maze)
+	public MoveReset(Model maze)
 	{
 		this.maze = (Maze) maze;
 	}
 
 	@Override
 	public void execute() {
-		maze.move(Heading.WEST);
+		maze.move(Heading.RESET);
 		
 	}
-	
 }
