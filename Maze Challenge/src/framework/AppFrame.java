@@ -36,7 +36,7 @@ public class AppFrame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle(factory.getTitle());
 		//setSize(500, 500);
-		setMinimumSize(new Dimension(500, 500));
+		setMinimumSize(new Dimension(900, 500));
 	}
 
 	protected JMenuBar createMenuBar() {

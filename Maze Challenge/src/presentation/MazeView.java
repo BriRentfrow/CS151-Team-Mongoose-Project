@@ -25,7 +25,7 @@ public class MazeView extends View {
     private static final long serialVersionUID = 1L;
 
     private Maze maze;
-    private final int VIEW_SIZE = 200;
+    private final int VIEW_SIZE = 400;
     private int UNIT_SIZE;
 
     public MazeView(Model model) {
