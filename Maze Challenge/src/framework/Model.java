@@ -28,7 +28,7 @@ public abstract class Model extends Observable implements Serializable {
 		this.setUnsavedChanges(true);
 		this.setChanged();
 		this.notifyObservers();
-		this.clearChanged();
+		this.clearChanged(); //Added 
 	}
 	public boolean hasUnsavedChanges() {
 		return unsavedChanges;

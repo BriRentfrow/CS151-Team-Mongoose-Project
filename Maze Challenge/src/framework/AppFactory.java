@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
  * Jacky 11/13: added contents()
  */
 
-
-
 	//AppFrame, AppPanel use this class 
 public interface AppFactory {
 	public Model makeModel();
