@@ -11,7 +11,7 @@ import business.Maze;
 /**
  * Brianna: Added from Pearce's framework page
  * Jacky 11/11: edited updated() , constructor, and added paintComponent(). Class should be finished
- * Jacky 11/13:
+ * Collaborated 11/14: edited constructor()
  * 
  */
 

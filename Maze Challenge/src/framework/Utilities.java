@@ -7,6 +7,7 @@ import javax.swing.*;
 /**
  * Brianna: Added from Pearce's framework page
  * Brianna(11/10): fixed minor bug
+ * Collaborated 11/14: removed setModel
  */
 
 public class Utilities {

@@ -16,8 +16,9 @@ import business.Maze;
 import framework.Model;
 import framework.View;
 
-//Jacky 11/11: Added maze view, paintComponenet() needs to be finished
-//Jacky 11/13: update() was added.
+//Jacky 11/11: Added maze view, paintComponet() needs to be finished
+//Jacky 11/13: update() was added;
+//Brianna 11/3: Finished paintComponent() updated();
 public class MazeView extends View {
     // remember has an observer, needs update method
     // draws the maze
@@ -32,6 +33,7 @@ public class MazeView extends View {
         this.maze = (Maze) model;
         this.UNIT_SIZE = VIEW_SIZE / maze.MAZE_SIZE;
         this.setMinimumSize(new Dimension(VIEW_SIZE, VIEW_SIZE));
+        //do not need abbObserver here because Super class allready does that
     }
 
     public void paintComponent(Graphics g) {

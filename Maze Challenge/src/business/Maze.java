@@ -5,9 +5,15 @@ import java.util.Random;
 import framework.Model;
 import framework.Utilities;
 
-// Jacky implemented: move and move tester
+// Jacky 11/9 implemented: move and move tester
 // Jacky completed Maze 11/9, edited Move() 11/13 added RESET in move.
-// Jacky 11/13 added win and loose conditions;
+// Jacky 11/13 added win and loose conditions with win and loose pop ups
+	//numMoves, player and exit getters and setters.
+
+//Collaborated 11/14 on copy() method, removed setModel() method
+//this is because instead of appending and setting all observers to a model
+//, the model with all the observers can copy to a newer model
+
 public class Maze extends Model {
 
 
@@ -67,9 +73,7 @@ public class Maze extends Model {
 				playerPosY -= 1;
 				numMoves -=1;
 				this.changed();
-				// if play pos is equal to exit do
 			}
-			
 			break;
 
 		case SOUTH:
@@ -78,23 +82,22 @@ public class Maze extends Model {
 				numMoves -=1;
 				this.changed();
 			}
-			
 			break;
+
 		case EAST:
 			if (playerPosX < 19 && numMoves > 0) {
 				playerPosX += 1;
 				numMoves -=1;
 				this.changed();
 			}
-			
 			break;
+
 		case WEST:
 			if (playerPosX > 0 && numMoves > 0) {
 				playerPosX -= 1;
 				numMoves -=1;
 				this.changed();
 			}
-			
 			break;
 			
 		case RESET:
@@ -109,6 +112,7 @@ public class Maze extends Model {
 			break;
 		}
 
+		//win loose conditions
 		if (playerPosX == exitX && playerPosY == exitY ){
 			Utilities.inform("You have won!");
 			}
@@ -130,13 +134,13 @@ public class Maze extends Model {
 		return (int) rounded;
 	}
 
-	//tests move method.
-	public static void main(String[] args) {
-		Maze mze = new Maze();
-		System.out.println(mze.getPlayerPos());
+	// //tests move method.
+	// public static void main(String[] args) {
+	// 	Maze mze = new Maze();
+	// 	System.out.println(mze.getPlayerPos());
 
-		mze.move(Heading.NORTH);
-		mze.move(Heading.NORTH);
-		System.out.println(mze.getPlayerPos());
-	}
+	// 	mze.move(Heading.NORTH);
+	// 	mze.move(Heading.NORTH);
+	// 	System.out.println(mze.getPlayerPos());
+	// }
 }

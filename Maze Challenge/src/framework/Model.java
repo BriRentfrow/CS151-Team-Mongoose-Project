@@ -4,6 +4,7 @@ package framework;
 import java.util.*;
 import java.io.*;
 
+// Collaborated 11/14: removed setModel()
 public abstract class Model extends Observable implements Serializable {
 
 	protected String fileName;
