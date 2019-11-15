@@ -16,18 +16,16 @@ import business.Maze;
 import framework.Model;
 import framework.View;
 
-//Jacky 11/11: Added maze view, paintComponenet() needs to be finished
-//Jacky 11/13: update() was added.
-//Jacky/Brianna (11/13): New paintComponent Made
-//Collaboration (11/14): Fix paintComponent
-//Brianna (11/14): Minor tweaks to paintComponent
+//Jacky 11/11: Added maze view, paintComponet() needs to be finished
+//Jacky 11/13: update() was added;
+//Brianna 11/13: Finished paintComponent() updated();
 public class MazeView extends View {
     // remember has an observer, needs update method
     // draws the maze
     private static final long serialVersionUID = 1L;
 
     private Maze maze;
-    private final int VIEW_SIZE = 200;
+    private final int VIEW_SIZE = 400;
     private int UNIT_SIZE;
 
     public MazeView(Model model) {
@@ -35,6 +33,7 @@ public class MazeView extends View {
         this.maze = (Maze) model;
         this.UNIT_SIZE = VIEW_SIZE / maze.MAZE_SIZE;
         this.setMinimumSize(new Dimension(VIEW_SIZE, VIEW_SIZE));
+        //do not need abbObserver here because Super class allready does that
     }
 
     public void paintComponent(Graphics g) {
@@ -50,7 +49,7 @@ public class MazeView extends View {
                 rectangle = new Rectangle2D.Double(x *UNIT_SIZE, y*UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
                 gc.setColor(Color.DARK_GRAY);
                 gc.fill(rectangle);
-                gc.setColor(Color.BLACK);
+                gc.setColor(Color.GRAY);
                 gc.draw(rectangle);
 
             }
@@ -60,7 +59,7 @@ public class MazeView extends View {
         Ellipse2D.Double player = new Ellipse2D.Double(maze.getPlayerX() *UNIT_SIZE , maze.getPlayerY() *UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
         gc.setColor(Color.BLUE);
         gc.fill(player);
-        gc.setColor(Color.white);
+        gc.setColor(Color.WHITE);
         gc.draw(player);
 
     }

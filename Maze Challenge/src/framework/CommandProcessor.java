@@ -9,10 +9,12 @@ import presentation.MoveSouth;
  * Jacky 11/9 completed CommandProcessor
  * Brianna(11/10): Fixed issue with CommandProcessor 
  * Jacky 11/11 tested Command Processor
+ * Jacky 11/14 edited execute()
  */
 
 public class CommandProcessor {
 
+	//this line is used when??????
 	public static CommandProcessor theCommandProcessor =  new CommandProcessor();
     
 	public CommandProcessor() 

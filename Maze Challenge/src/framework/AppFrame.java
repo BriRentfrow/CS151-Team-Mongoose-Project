@@ -16,6 +16,7 @@ import javax.swing.*;
 /**
  * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
  * Jacky 11/12: AppFrame should be done. Edited createMenuBar() and it should be done.
+ * model.copy(newModel); replaced model.setModel(model);
  */
 
 
@@ -35,7 +36,7 @@ public class AppFrame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle(factory.getTitle());
 		//setSize(500, 500);
-		setMinimumSize(new Dimension(500, 500));
+		setMinimumSize(new Dimension(900, 500));
 	}
 
 	protected JMenuBar createMenuBar() {

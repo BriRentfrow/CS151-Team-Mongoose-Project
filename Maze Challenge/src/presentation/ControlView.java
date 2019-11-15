@@ -14,7 +14,10 @@ import framework.Model;
 
 
 // Jacky 11/13 added constructor and methods()
-// Collaboration (11/14): Made sure was functioning correctly with other methods
+// Jacky 11/13 completed Constructor and update()
+// Brianna 11/14 fixed bugs
+
+
 public class ControlView extends JPanel implements Observer {
 
 	private Maze maze;

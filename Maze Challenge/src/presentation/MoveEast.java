@@ -19,8 +19,7 @@ public class MoveEast extends Command {
 
 	@Override
 	public void execute() {
-		maze.move(Heading.EAST);
-		
+		maze.move(Heading.EAST);	
 	}
 	
 }

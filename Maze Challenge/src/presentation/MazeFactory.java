@@ -5,11 +5,16 @@ import java.awt.event.ActionListener;
 import business.Maze;
 import framework.*;
 
+	// Jacky 11/12: completed getEditCommands(), getHelp(), about(), contents(), //edited makeEditCommand()
+	// Brianna, Jacky 11/14: fixed major makeEditCommand bug
 
 public class MazeFactory implements AppFactory {
 
-	// Jacky 11/12: completed getEditCommands(), getHelp(), about(), contents().
-	
+	public MazeFactory()
+	{
+		//done
+	}
+		
 	@Override //makes maze
 	public Model makeModel() {
 		Model maze = new Maze();
@@ -18,7 +23,6 @@ public class MazeFactory implements AppFactory {
 
 	@Override //makes the panel under the FileMenu //NULL POINTER where?
 	public AppPanel makePanel(Model model, ActionListener listener) {
-		
 			AppPanel appP = new MazePanel( (Maze) model, listener);
 			return appP;
 	}
@@ -28,13 +32,10 @@ public class MazeFactory implements AppFactory {
 		
 		return new String[] { "North", "East", "South", "West", "Reset" };
 		//Under the Edit button, these strings appear.
-
 	}
 	
-
 	@Override //convert commands to string
 	public Command makeEditCommand(Model model, String type) {
-		
 		//needs to return type command
 		Maze maze = (Maze) model;
 		
@@ -85,6 +86,6 @@ public class MazeFactory implements AppFactory {
 	@Override
 	public String[] contents() {
 		return new String[] { "Locate the escape room in the number of alloted moves" };
-		//The contents info under Help.
+		//The contents infor under Help.
 	}
 }

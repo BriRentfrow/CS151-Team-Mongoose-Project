@@ -4,6 +4,7 @@ package framework;
 import java.util.*;
 import java.io.*;
 
+// Collaborated 11/14: removed setModel()
 public abstract class Model extends Observable implements Serializable {
 
 	protected String fileName;
@@ -27,7 +28,7 @@ public abstract class Model extends Observable implements Serializable {
 		this.setUnsavedChanges(true);
 		this.setChanged();
 		this.notifyObservers();
-		this.clearChanged();
+		this.clearChanged(); //Added 
 	}
 	public boolean hasUnsavedChanges() {
 		return unsavedChanges;
