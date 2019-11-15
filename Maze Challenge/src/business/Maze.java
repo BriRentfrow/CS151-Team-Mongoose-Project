@@ -3,9 +3,11 @@ package business;
 import java.util.Random;
 
 import framework.Model;
+import framework.Utilities;
 
 // Jacky implemented: move and move tester
 // Jacky completed Maze 11/9, edited Move() 11/13 added RESET in move.
+// Jacky 11/13 added win and loose conditions;
 public class Maze extends Model {
 
 
@@ -19,10 +21,11 @@ public class Maze extends Model {
 
 
 	public Maze() {
-		setExit(20);
+		super();
+		setExit();
 		playerPosX = 10;
 		playerPosY = 10;
-		numMoves = 100;
+		numMoves = 50;
 	}
 
 	public void copy(Model other)
@@ -34,6 +37,7 @@ public class Maze extends Model {
 		exitX = otherMze.getExitX();
 		exitY = otherMze.getExitY();
 		numMoves = otherMze.getNumMoves();
+		changed();
 	}
 
 	public String getPlayerPos() // for testing purposes
@@ -50,12 +54,12 @@ public class Maze extends Model {
 
 	
 
-	public void setExit(int mazeSize) {
+	public void setExit() {
 		Random rand = new Random();
-		exitX = rand.nextInt(mazeSize);
-		exitY = rand.nextInt(mazeSize);
+		exitX = rand.nextInt(MAZE_SIZE);
+		exitY = rand.nextInt(MAZE_SIZE);
 	}
-
+	
 	public void move(Heading direction) {
 		switch (direction) {
 
@@ -64,6 +68,7 @@ public class Maze extends Model {
 				playerPosY -= 1;
 				numMoves -=1;
 				this.changed();
+				// if play pos is equal to exit do
 			}
 			
 			break;
@@ -86,7 +91,7 @@ public class Maze extends Model {
 			break;
 		case WEST:
 			if (playerPosX > 0 && numMoves > 0) {
-				playerPosY -= 1;
+				playerPosX -= 1;
 				numMoves -=1;
 				this.changed();
 			}
@@ -96,6 +101,8 @@ public class Maze extends Model {
 		case RESET:
 			playerPosX = 10;
 			playerPosY = 10;
+			setExit();
+			numMoves = 50;
 			this.changed();
 			break;
 
@@ -103,6 +110,13 @@ public class Maze extends Model {
 			break;
 		}
 
+		if (playerPosX == exitX && playerPosY == exitY ){
+			Utilities.inform("You have won!");
+			}
+		else if (numMoves == 0)
+		{
+			Utilities.inform("You have lost!");
+		}
 	}
 
 	public int distanceToExit() // pythagorean theorem

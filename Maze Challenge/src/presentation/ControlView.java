@@ -26,7 +26,7 @@ public class ControlView extends JPanel implements Observer {
 	ControlView(Maze maze, ActionListener listener) {
 		this.maze = maze;
 		maze.addObserver(this);
-		
+
 		this.listener = listener;
 		setLayout(new GridLayout(7,1));
 		// Initialize all the variables
@@ -39,7 +39,7 @@ public class ControlView extends JPanel implements Observer {
 		northButton = new JButton("North");
 		eastButton = new JButton("East");
 		southButton = new JButton("South");
-		westButton = new JButton("East");
+		westButton = new JButton("West");
 		resetButton = new JButton("Reset");
 
 		// add listners to all the buttons, actionPerformed() in "" will handle them.
@@ -47,6 +47,7 @@ public class ControlView extends JPanel implements Observer {
 		eastButton.addActionListener(listener);
 		southButton.addActionListener(listener);
 		westButton.addActionListener(listener);
+		resetButton.addActionListener(listener);
 
 		// exit panel
 		JPanel p = new JPanel();
@@ -89,8 +90,8 @@ public class ControlView extends JPanel implements Observer {
 	public void update(Observable o, Object arg) {
 		if (o instanceof Maze)
 		{
-				exitsLeft = new JLabel(Integer.toString(maze.distanceToExit())); // just changes the int to a string
-				movesLeft = new JLabel(Integer.toString(maze.distanceToExit()));
+				exitsLeft.setText(Integer.toString(maze.distanceToExit())); // just changes the int to a string
+				movesLeft.setText(Integer.toString(maze.getNumMoves()));
 		}
 	}
 }

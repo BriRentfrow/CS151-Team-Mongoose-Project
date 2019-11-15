@@ -43,9 +43,9 @@ public class AppFrame extends JFrame implements ActionListener {
 		
 		// Jmenu items are initialized under utilities. see makeMenu()
 		JMenu fileMenu = Utilities.makeMenu("File", new String[] { "New", "Open", "Save", "Save As" , "Quit"}, this); // done
+		JMenu editMenu = Utilities.makeMenu("Edit", factory.getEditCommands(), this); //done
 		JMenu helpMenu = Utilities.makeMenu("Help", factory.getHelp(), this); //done
 		
-		JMenu editMenu = Utilities.makeMenu("Edit", factory.getEditCommands(), this); //done
 	
 		// now add menus to bar
 		bar.add(fileMenu);
@@ -60,11 +60,11 @@ public class AppFrame extends JFrame implements ActionListener {
 	 */
 	
 	public void actionPerformed(ActionEvent ae) {
-		String cmmd = ae.getActionCommand();  
+		String cmmd = ae.getActionCommand();
 		
 		if (cmmd == "Save") {
 			Utilities.save(model, false);
-		} else if (cmmd == "SaveAs") {
+		} else if (cmmd == "Save As") {
 			Utilities.save(model, true);
 		} else if (cmmd == "Open") {
 			Model newModel = Utilities.open(model);

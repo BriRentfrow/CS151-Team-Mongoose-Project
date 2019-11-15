@@ -25,7 +25,7 @@ abstract public class View extends JComponent implements Observer {
 	}
 	
 	//UPDATE IS DONE, not needed in MazeView
-	public void update(Observable subject, Object msg) {	
+	public void update(Observable subject, Object msg) {
 		repaint();
 	}
 	//repaint() uses this.
