@@ -52,6 +52,7 @@ public class MazeView extends View{
         //TheMaze = maze;
     }
     
+    //Depreciated version of our paintComponent
     /**
     public void paintComponent(Graphics g) {
 

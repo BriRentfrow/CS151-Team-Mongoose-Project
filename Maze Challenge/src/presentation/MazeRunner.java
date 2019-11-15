@@ -2,6 +2,8 @@ package presentation;
 
 import framework.AppFrame;
 
+//Jacky: made MazeRunner
+
 public class MazeRunner {
 
 	public static void main (String[] args)

@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
  * Jacky: added contents() 11/13
  */
 
-
-
 	//AppFrame, AppPanel use this class 
 public interface AppFactory {
 	public Model makeModel();
@@ -14,7 +12,6 @@ public interface AppFactory {
 	public AppPanel makePanel(Model model, ActionListener listener);
 
 	public String[] getEditCommands();
-	
 	
 	public String[] getHelp();
 

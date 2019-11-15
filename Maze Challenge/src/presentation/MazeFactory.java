@@ -12,12 +12,6 @@ public class MazeFactory implements AppFactory {
 
 	// Jacky 11/12: completed getEditCommands(), getHelp(), about(), contents().
 	
-	public MazeFactory()
-	{
-		//done
-	}
-	
-	
 	@Override //makes maze
 	public Model makeModel() {
 		Model maze = new Maze();

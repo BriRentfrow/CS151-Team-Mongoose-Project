@@ -8,8 +8,10 @@ import javax.swing.*;
 
 
 /**
- * Brianna: Added from Pearce's framework page Brianna (11/10): made createMenuBar(); 
+ * Brianna: Added from Pearce's framework page 
+ * Brianna (11/10): made createMenuBar(); 
  * Jacky 11/12: AppFrame should be done. Edited createMenuBar() and it should be done.
+ * Jacky, Brianna, G (11/14): Worked on actionPerformed together
  */
 
 public class AppFrame extends JFrame implements ActionListener {
