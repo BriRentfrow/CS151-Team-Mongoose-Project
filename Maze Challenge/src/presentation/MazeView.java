@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.Ellipse2D;
+
 import java.util.Observable;
 
 import javax.swing.JFrame;
@@ -51,7 +53,10 @@ public class MazeView extends View {
             }
         }
 
-        
+        //draw the player
+        Ellipse2D.Double player = new Ellipse2D.Double(maze.getPlayerX() *UNIT_SIZE , maze.getPlayerY() *UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+        gc.setColor(Color.BLUE);
+        gc.fill(player);
 
     }
 
