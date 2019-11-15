@@ -2,10 +2,7 @@ package presentation;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-import java.util.Observable;
 
-import javax.swing.JComponent;
-import javax.swing.JPanel;
 
 import business.Maze;
 import framework.AppPanel;
@@ -15,10 +12,15 @@ import framework.View;
 public class MazePanel extends AppPanel{
 
 	
-	// Jacky 11/12: added and edited constructor.  
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+	// Jacky 11/12: added and edited constructor.
 	// 
 	private Maze maze;
 	private ControlView ctrlView;
+	private MazeView mazeView;
 	/*private MazeControlPanel controlPanel;
 		can make that and then have update method and update all 
 		set a panel
@@ -34,19 +36,19 @@ public class MazePanel extends AppPanel{
 	
 	public MazePanel(Model model, ActionListener listener) {
 		super(model, listener);
-		// add text fields, labels, and views
 		this.maze = (Maze) model;
+		setLayout(new GridLayout (1,2)); // 1x2 grid layout
 		//get Views and add mazeview to it
-		views.add(new MazeView(model));
+		
 		
 		ctrlView = new ControlView(maze, listener);
-		setLayout(new GridLayout (1,2)); // 1x2 grid layout
-
-		maze.addObserver(ctrlView);
 		this.add(ctrlView);
-		
-		for (View view: views) 
-		{ this.add(view);}
+		mazeView = new MazeView(maze);
+		this.add( mazeView);
+		//maze.addObserver(ctrlView);  not needed because subclasses do addObservers
+
+		// for (View view: views) 
+		// { this.add(view);}
 		
 	}
 }

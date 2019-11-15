@@ -27,7 +27,7 @@ public class MazeView extends View{
 	{
 		super(model);
 		this.maze = (Maze) model;
-		
+		maze.addObserver(this);
 	}
 
 	public void paintComponenet(Graphics g) {

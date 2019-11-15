@@ -10,6 +10,5 @@ public class MazeRunner {
 		AppFrame app = new AppFrame( new MazeFactory());
 		app.pack();
 		app.setVisible(true);
-				
 	}
 }

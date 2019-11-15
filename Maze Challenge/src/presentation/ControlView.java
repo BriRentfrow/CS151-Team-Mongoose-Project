@@ -25,9 +25,10 @@ public class ControlView extends JPanel implements Observer {
 
 	ControlView(Maze maze, ActionListener listener) {
 		this.maze = maze;
+		maze.addObserver(this);
+		
 		this.listener = listener;
 		setLayout(new GridLayout(7,1));
-
 		// Initialize all the variables
 		exitLabel = new JLabel("Exit Distance ");
 		movesLeftLabel = new JLabel("Moves Left ");

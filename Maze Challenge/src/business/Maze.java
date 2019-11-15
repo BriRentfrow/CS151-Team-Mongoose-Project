@@ -34,7 +34,6 @@ public class Maze extends Model {
 		exitX = otherMze.getExitX();
 		exitY = otherMze.getExitY();
 		numMoves = otherMze.getNumMoves();
-
 	}
 
 	public String getPlayerPos() // for testing purposes
@@ -63,6 +62,7 @@ public class Maze extends Model {
 		case NORTH:
 			if (playerPosY > 0 && numMoves > 0) {
 				playerPosY -= 1;
+				numMoves -=1;
 				this.changed();
 			}
 			
@@ -71,6 +71,7 @@ public class Maze extends Model {
 		case SOUTH:
 			if (playerPosY < 19 && numMoves > 0) {
 				playerPosY += 1;
+				numMoves -=1;
 				this.changed();
 			}
 			
@@ -78,6 +79,7 @@ public class Maze extends Model {
 		case EAST:
 			if (playerPosX < 19 && numMoves > 0) {
 				playerPosX += 1;
+				numMoves -=1;
 				this.changed();
 			}
 			
@@ -85,6 +87,7 @@ public class Maze extends Model {
 		case WEST:
 			if (playerPosX > 0 && numMoves > 0) {
 				playerPosY -= 1;
+				numMoves -=1;
 				this.changed();
 			}
 			

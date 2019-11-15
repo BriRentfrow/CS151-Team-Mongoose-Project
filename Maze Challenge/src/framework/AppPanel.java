@@ -17,13 +17,13 @@ import business.Maze;
 public class AppPanel extends JPanel implements Observer {
 	  protected Model model;
 	  protected ActionListener listener;
-	  protected ArrayList<View> views;
+	 // protected ArrayList<View> views;
 	  
 	  
 	  public AppPanel(Model model, ActionListener listener)
 	  {
 		this.model = model;  
-		views = ArrayList<View>();
+		//views = new ArrayList<View>();
 		this.listener = listener; 
 		model.addObserver(this);
 	  }
@@ -40,11 +40,11 @@ public class AppPanel extends JPanel implements Observer {
 	  }
 	  
 	  
-	  public void add(View view) {
-		//  super.add(view);
-	     views.add(view);     //NULL POINTERE thrown here
-	  }
+	//   public void add(View view) {
+	// 	//  super.add(view);
+	//      views.add(view);     //NULL POINTERE thrown here
+	//   }
 	 
-	  public ArrayList getViews() {return views;}
+	  // public ArrayList getViews() {return views;}
 	  
 	}

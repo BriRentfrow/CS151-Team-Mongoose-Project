@@ -38,15 +38,6 @@ public class AppFrame extends JFrame implements ActionListener {
 		setMinimumSize(new Dimension(500, 500));
 	}
 
-	public void display() {
-		this.setVisible(true);
-	}
-
-	public void setModel(Model model) {
-		this.model = model;
-		panel.setModel(model);
-	}
-
 	protected JMenuBar createMenuBar() {
 		JMenuBar bar = new JMenuBar();
 		
@@ -77,10 +68,10 @@ public class AppFrame extends JFrame implements ActionListener {
 			Utilities.save(model, true);
 		} else if (cmmd == "Open") {
 			Model newModel = Utilities.open(model);
-			setModel(newModel);
+			model.copy(newModel);  //newmodel is stored in java somehwere magic
 		} else if (cmmd == "New") {
 			Utilities.saveChanges(model);
-			setModel(factory.makeModel());
+			model.copy(factory.makeModel());
 			// needed because setModel sets to true:
 			model.setUnsavedChanges(false);
 		} else if (cmmd == "Quit") {

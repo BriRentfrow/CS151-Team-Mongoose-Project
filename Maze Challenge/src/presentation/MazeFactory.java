@@ -3,7 +3,6 @@ package presentation;
 import java.awt.event.ActionListener;
 
 import business.Maze;
-import business.*;
 import framework.*;
 
 
@@ -36,7 +35,7 @@ public class MazeFactory implements AppFactory {
 	@Override
 	public String[] getEditCommands() {
 		
-		return new String[] { "North", "East", "South", "West" };
+		return new String[] { "North", "East", "South", "West", "Reset" };
 		//Under the Edit button, these strings appear.
 
 	}
