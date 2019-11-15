@@ -67,6 +67,7 @@ public class Utilities {
 
 	// asks user for a file name
 	public static String getFileName(String fName) {
+		
 		JFileChooser chooser = new JFileChooser();
 		String result = null;
 		if (fName != null) {

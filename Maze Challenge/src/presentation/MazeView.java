@@ -18,7 +18,7 @@ import framework.View;
 
 //Jacky 11/11: Added maze view, paintComponet() needs to be finished
 //Jacky 11/13: update() was added;
-//Brianna 11/3: Finished paintComponent() updated();
+//Brianna 11/13: Finished paintComponent() updated();
 public class MazeView extends View {
     // remember has an observer, needs update method
     // draws the maze
@@ -59,6 +59,8 @@ public class MazeView extends View {
         Ellipse2D.Double player = new Ellipse2D.Double(maze.getPlayerX() *UNIT_SIZE , maze.getPlayerY() *UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
         gc.setColor(Color.BLUE);
         gc.fill(player);
+        gc.setColor(Color.WHITE);
+        gc.draw(player);
 
     }
 
