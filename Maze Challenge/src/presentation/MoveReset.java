@@ -5,7 +5,10 @@ import business.Maze;
 import framework.Command;
 import framework.Model;
 
-public class MoveReset implements Command {
+//Jacky 11/9: added class 
+//Jacky 11/13 edited constructor
+
+public class MoveReset extends Command {
 
 	private Maze maze;
 

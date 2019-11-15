@@ -12,6 +12,12 @@ import javax.swing.JPanel;
 import business.Maze;
 import framework.Model;
 
+
+// Jacky 11/13 added constructor and methods()
+// Jacky 11/13 completed Constructor and update()
+// Brianna 11/14 fixed bugs
+
+
 public class ControlView extends JPanel implements Observer {
 
 	private Maze maze;
@@ -23,20 +29,21 @@ public class ControlView extends JPanel implements Observer {
 
 	ControlView(Maze maze, ActionListener listener) {
 		this.maze = maze;
+		maze.addObserver(this);
+
 		this.listener = listener;
 		setLayout(new GridLayout(7,1));
-
 		// Initialize all the variables
 		exitLabel = new JLabel("Exit Distance ");
 		movesLeftLabel = new JLabel("Moves Left ");
 
 		exitsLeft = new JLabel(Integer.toString(maze.distanceToExit())); // just changes the int to a string
-		movesLeft = new JLabel(Integer.toString(maze.distanceToExit()));
+		movesLeft = new JLabel(Integer.toString(maze.getNumMoves()));
 
 		northButton = new JButton("North");
 		eastButton = new JButton("East");
 		southButton = new JButton("South");
-		westButton = new JButton("East");
+		westButton = new JButton("West");
 		resetButton = new JButton("Reset");
 
 		// add listners to all the buttons, actionPerformed() in "" will handle them.
@@ -44,6 +51,7 @@ public class ControlView extends JPanel implements Observer {
 		eastButton.addActionListener(listener);
 		southButton.addActionListener(listener);
 		westButton.addActionListener(listener);
+		resetButton.addActionListener(listener);
 
 		// exit panel
 		JPanel p = new JPanel();
@@ -86,8 +94,8 @@ public class ControlView extends JPanel implements Observer {
 	public void update(Observable o, Object arg) {
 		if (o instanceof Maze)
 		{
-				exitsLeft = new JLabel(Integer.toString(maze.distanceToExit())); // just changes the int to a string
-				movesLeft = new JLabel(Integer.toString(maze.distanceToExit()));
+				exitsLeft.setText(Integer.toString(maze.distanceToExit())); // just changes the int to a string
+				movesLeft.setText(Integer.toString(maze.getNumMoves()));
 		}
 	}
 }

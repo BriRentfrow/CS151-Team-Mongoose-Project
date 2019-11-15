@@ -19,10 +19,4 @@ public class ViewTester extends JPanel {
 	    g.drawRect (5, 15, 50, 75); 
 	  }
 
-	
-	
-	
-	
-	
-	
 }

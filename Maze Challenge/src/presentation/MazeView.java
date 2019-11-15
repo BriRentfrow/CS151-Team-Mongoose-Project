@@ -16,114 +16,52 @@ import business.Maze;
 import framework.Model;
 import framework.View;
 
-/**
- * 
- * Jacky 11/11: Added maze view, paintComponenet() needs to be finished
- * Brianna (11/12): Worked on
- * Brianna (11/13): Continued to try and get things to paint
- * Brianna (11/14): Continued to work on methods and merging; completely changed PaintComponent, added drawPlayer()
- *
- */
-public class MazeView extends View{ 
-	Maze TheMaze;
-    int playerX;
-    int playerY;
-    int UNIT_SIZE = 10;
-    //10x10 pixels for square size
-    //20x20 grid size
+//Jacky 11/11: Added maze view, paintComponet() needs to be finished
+//Jacky 11/13: update() was added;
+//Brianna 11/13: Finished paintComponent() updated();
+public class MazeView extends View {
+    // remember has an observer, needs update method
+    // draws the maze
+    private static final long serialVersionUID = 1L;
 
-    //TODO: Get to make a grid
+    private Maze maze;
+    private final int VIEW_SIZE = 200;
+    private int UNIT_SIZE;
 
-    /**
-     * Constructor
-     */
-    //public MazeView(){
-    //    Dimension d = new Dimension();
-    //    d.setSize(400,400);
-    //    this.setPreferredSize(d);
-    //}
-
-    /**
-     * Another constructor
-     * @param maze Maze view takes in a maze
-     */
-    public MazeView(Maze maze) {
-        super(maze);
-        //TheMaze = maze;
+    public MazeView(Model model) {
+        super(model);
+        this.maze = (Maze) model;
+        this.UNIT_SIZE = VIEW_SIZE / maze.MAZE_SIZE;
+        this.setMinimumSize(new Dimension(VIEW_SIZE, VIEW_SIZE));
+        //do not need abbObserver here because Super class allready does that
     }
-    
-    //Depreciated version of our paintComponent
-    /**
+
     public void paintComponent(Graphics g) {
 
+        Graphics2D gc = (Graphics2D) g;
         super.paintComponent(g);
+        Rectangle2D.Double rectangle;
 
-        //Create the grid within the for loop
-        for(int x = 0; x > 20; x++) {
-            for(int y = 0; y > 20; y++) {
-                drawSquare(g,(x*UNIT_SIZE), (y*UNIT_SIZE));
+        // Create the grid within the for loop
+        for (int x = 0; x < maze.MAZE_SIZE; x++) {
+            for (int y = 0; y < maze.MAZE_SIZE; y++) {
 
-            }
-        }
-
-        Graphics2D gc = (Graphics2D) g;
-        Rectangle2D.Double rectangle = new Rectangle2D.Double(UNIT_SIZE,UNIT_SIZE, 25, 25);
-        gc.setColor(Color.RED);
-        gc.fill(rectangle);
-    }
-    **/
-    
-    public void paintComponenet(Graphics g) {
-        super.paintComponent(g); 
-        Graphics2D gc = (Graphics2D) g;
-
-        //for loop, draw each rectangle to how you need
-        Rectangle2D.Double rectangle = new Rectangle2D.Double(0, 0, UNIT_SIZE, UNIT_SIZE);
-
-        gc.setColor(Color.GRAY);
-        gc.fill(rectangle);
-        gc.setColor(Color.BLACK);
-        gc.draw(rectangle);
-        
-        //for loop to populate maze with squares
-        for(int x = 0; x > 20; x++) {
-            for(int y = 0; y > 20; y++) {
-            	rectangle = new Rectangle2D.Double((x*UNIT_SIZE), (y*UNIT_SIZE), UNIT_SIZE,25);
-                gc.setColor(Color.GRAY);
+                rectangle = new Rectangle2D.Double(x *UNIT_SIZE, y*UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+                gc.setColor(Color.DARK_GRAY);
                 gc.fill(rectangle);
-                gc.setColor(Color.BLACK);
+                gc.setColor(Color.GRAY);
                 gc.draw(rectangle);
+
             }
         }
-        
-        //or can draw rectangles in the method below
-    }
 
-    public void drawSquare(Graphics gr, int x, int y) {
-
-        Graphics2D g = (Graphics2D) gr;
-
-        Rectangle2D.Double rectangle = new Rectangle2D.Double(UNIT_SIZE,UNIT_SIZE, 25, 25);
-        //Make a square
-        g.setColor(Color.GRAY);
-        g.fillRect(x, y, UNIT_SIZE, UNIT_SIZE);
-
-        Rectangle2D.Double borderrect = new Rectangle2D.Double(UNIT_SIZE,UNIT_SIZE, 25, 25);
-        //Make Border
-        g.setColor(Color.BLACK);
-        g.drawRect(x, y, UNIT_SIZE, UNIT_SIZE);
+        //draw the player
+        Ellipse2D.Double player = new Ellipse2D.Double(maze.getPlayerX() *UNIT_SIZE , maze.getPlayerY() *UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+        gc.setColor(Color.BLUE);
+        gc.fill(player);
+        gc.setColor(Color.WHITE);
+        gc.draw(player);
 
     }
-    
-    //Used to draw a circle for the player
-    public void drawPlayer(Graphics gr, int x, int y) {
-    	Graphics2D g = (Graphics2D) gr;
-    	
-    	Ellipse2D.Double player = new Ellipse2D.Double(x, y, 10, 10);
-    	g.setColor(Color.RED);
-    	g.fill(player);
-    	//adds white border around player
-    	g.setColor(Color.WHITE);
-    	g.draw(player);
-    }
+
 }

@@ -1,36 +1,19 @@
 package framework;
 
-import business.Maze;
 
+public abstract class Command {
 
-//try as in interface
-//I got lazy, I changed it back to an abstract class 
+	protected Model model;
 
-public interface Command
-{
-	public void execute();
+    public void execute() {}
 }
 
-//NEED to Test: Make a model somewhere else, set a maze, and make sure that instance works
-//public abstract class Command
-//{
-//
-//	protected Modely;
-//	public Command
-//	
-//	public abstract void execute();
-//}
 
+//Jacky 11/10 Try as Interface and completed
+//Jacky 11/14 I tried Commands as an interface. 
+	//Didnt work with appFrame actionPerformed() So I went back to abstract class
 
-
-//
-//public abstract class Command {
-//	
-//	protected Model model;
-//	protected Maze maze;
-//	//or do Maze maze;  ???
-//	
-//	public abstract void execute();
-//	
-//}
-
+// public interface Command
+// {
+// 	public void execute();
+// }

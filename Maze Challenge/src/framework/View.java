@@ -11,6 +11,7 @@ import business.Maze;
 /**
  * Brianna: Added from Pearce's framework page
  * Jacky 11/11: edited updated() , constructor, and added paintComponent(). Class should be finished
+ * Collaborated 11/14: edited constructor()
  * 
  */
 
@@ -20,26 +21,11 @@ abstract public class View extends JComponent implements Observer {
 
 	public View(Model model) {
 		this.model = model;
-		this.model.addObserver(this);
-		
-		//setModel(model);
-	}
-
-	public void setModel(Model model) {
-
-		
-		if (this.model != null) {
-			this.model.deleteObserver(this);
-			this.model = model;
-		}
-		if (this.model != null) {
-			this.model.addObserver(this);
-			this.update(model, null); // update myself <-- uses the method update() below.
-		}
+		model.addObserver(this); //model is listening for any changes in View
 	}
 	
 	//UPDATE IS DONE, not needed in MazeView
-	public void update(Observable subject, Object msg) {	
+	public void update(Observable subject, Object msg) {
 		repaint();
 	}
 	//repaint() uses this.

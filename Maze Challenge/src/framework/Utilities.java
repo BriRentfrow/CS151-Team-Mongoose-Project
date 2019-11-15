@@ -7,6 +7,7 @@ import javax.swing.*;
 /**
  * Brianna: Added from Pearce's framework page
  * Brianna(11/10): fixed minor bug
+ * Collaborated 11/14: removed setModel
  */
 
 public class Utilities {
@@ -66,6 +67,7 @@ public class Utilities {
 
 	// asks user for a file name
 	public static String getFileName(String fName) {
+		
 		JFileChooser chooser = new JFileChooser();
 		String result = null;
 		if (fName != null) {
@@ -114,8 +116,8 @@ public class Utilities {
 	}
 
 	// a simple menu maker
-	
-	
+	// public static void loadModel(Model model)
+	// {	}
 	//Jmenu's are initialized here. Because of that, new Jmenu's do not need to be initialized in AppFrame
 	
 	public static JMenu makeMenu(String name, String[] items, ActionListener handler) {

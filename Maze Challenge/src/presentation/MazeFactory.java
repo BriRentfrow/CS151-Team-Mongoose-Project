@@ -3,67 +3,59 @@ package presentation;
 import java.awt.event.ActionListener;
 
 import business.Maze;
-import framework.AppFactory;
-import framework.AppPanel;
-import framework.Command;
-import framework.Model;
+import framework.*;
+
+	// Jacky 11/12: completed getEditCommands(), getHelp(), about(), contents(), //edited makeEditCommand()
+	// Brianna, Jacky 11/14: fixed major makeEditCommand bug
 
 public class MazeFactory implements AppFactory {
 
-	// Jacky 11/12: completed getEditCommands(), getHelp(), about(), contents().
-	
+	public MazeFactory()
+	{
+		//done
+	}
+		
 	@Override //makes maze
 	public Model makeModel() {
 		Model maze = new Maze();
 		return maze;
 	}
 
-	@Override //makes the panel under the FileMenu
+	@Override //makes the panel under the FileMenu //NULL POINTER where?
 	public AppPanel makePanel(Model model, ActionListener listener) {
-		if (model instanceof Maze)
-		{	
-			//return MazePanel()
-			return new MazePanel( (Maze) model, listener);
-		}
-		
-		return null;
+			AppPanel appP = new MazePanel( (Maze) model, listener);
+			return appP;
 	}
 
 	@Override
 	public String[] getEditCommands() {
 		
-		return new String[] { "North", "East", "South", "West" };
+		return new String[] { "North", "East", "South", "West", "Reset" };
 		//Under the Edit button, these strings appear.
-
 	}
 	
-
 	@Override //convert commands to string
 	public Command makeEditCommand(Model model, String type) {
-		
 		//needs to return type command
-		Command cmmd = null;
+		Maze maze = (Maze) model;
 		
 		switch(type)
 		{
 		case "North":
-			cmmd = new MoveNorth(model);
-			break;
+			return new MoveNorth(maze);
+			
 		case "East":
-			cmmd = new MoveEast(model);
-			break;
+			return new MoveEast(maze);
+			
 		case "South":
-			cmmd = new MoveSouth(model);
-			break;
+			return new MoveSouth(maze);
+			
 		case "West":
-			cmmd = new MoveWest(model);
-			break;
+			return new MoveWest(maze);
+			
 		case "Reset":
-			cmmd = new MoveWest(model);
-			break;
+			return new MoveReset(maze);
 		}
-		
-		
 		
 		return null;
 	}
